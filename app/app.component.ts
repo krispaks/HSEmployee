@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Employee {
-    id: number;
-    name: string;
-}
+import { Employee } from './components/employee-detail/employee';
 
 const EMPLOYEES: Employee[] = [
   { id: 11, name: 'Khris Paca' },
@@ -30,14 +26,7 @@ const EMPLOYEES: Employee[] = [
         <span class="badge">{{employee.id}}</span> {{employee.name}}
       </li>
     </ul>
-    <div *ngIf="selectedEmployee">
-      <h2>{{selectedEmployee.name}} details!</h2>
-      <div><label>id: </label>{{selectedEmployee.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedEmployee.name" placeholder="name"/>
-      </div>
-    </div>`,
+    <my-employee-detail [employee]="selectedEmployee"></my-employee-detail>`,
     styles: [`
     .selected {
       background-color: #CFD8DC !important;

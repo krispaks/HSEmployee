@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<h2>Hyphen Employees</h2>
+<ul class="heroes">
+    <li *ngFor="let employee of employees"
+    [class.selected]="employee === selectedEmployee"
+    (click)="onSelect(employee)">
+    <span class="badge">{{employee.id}}</span> {{employee.name}}
+    </li>
+</ul>
+<div *ngIf="selectedEmployee">
+    <h2>
+        {{selectedEmployee.name | uppercase}} is a Hyphen Employee
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>

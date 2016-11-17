@@ -34,4 +34,23 @@ export class EmployeeListComponent implements OnInit {
     gotoDetail(): void {
         this.router.navigate(['/detail', this.selectedEmployee.id]);
     }
+
+    add(name: string): void {
+        name = name.trim();
+        if(!name) { return; }
+        this.employeeService.create(name)
+            .then(employee => {
+                this.employees.push(employee);
+                this.selectedEmployee = null;
+            });
+    }
+
+    delete(employee: Employee): void {
+        this.employeeService
+            .delete(employee.id)
+            .then(() => {
+                this.employees = this.employees.filter(h => h !== employee);
+                if(this.selectedEmployee === employee) { this.selectedEmployee = null; }
+            });
+    }
 }

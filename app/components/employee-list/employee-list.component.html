@@ -1,10 +1,19 @@
 <h1>{{title}}</h1>
 <h2>Hyphen Employees</h2>
+<div>
+    <label>Employee name:</label> <input #employeeName/>
+    <button (click)="add(employeeName.value); employeeName.value=''">
+        Add
+    </button>
+</div>
 <ul class="heroes">
     <li *ngFor="let employee of employees"
-    [class.selected]="employee === selectedEmployee"
-    (click)="onSelect(employee)">
-    <span class="badge">{{employee.id}}</span> {{employee.name}}
+        [class.selected]="employee === selectedEmployee" 
+        (click)="onSelect(employee)">
+
+        <span class="badge">{{employee.id}}</span> 
+        <span>{{employee.name}}</span>
+        <button class="delete" (click)="delete(employee); $event.stopPropagation()">x</button>
     </li>
 </ul>
 <div *ngIf="selectedEmployee">

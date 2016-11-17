@@ -34,6 +34,22 @@ export class EmployeeService {
             .catch(this.handleError);
     }
 
+    create(name: string): Promise<Employee>{
+        return this.http
+            .post(this.employeeUrl, JSON.stringify({name: name}), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data)
+            .catch(this.handleError)
+    }
+
+    delete(id: number): Promise<void> {
+        const url = `${this.employeeUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occured', error);
         return Promise.reject(error.message || error);

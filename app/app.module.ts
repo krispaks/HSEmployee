@@ -15,8 +15,11 @@ import { EmployeeDetailComponent } from './components/employee-detail/employee-d
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeSearchComponent } from './components/employee-search/employee-search.component';
+import { TitleComponent } from './components/title/title.component';
 
 import { EmployeeService } from './components/employee-detail/employee.service';
+
+import { HighlightDirective } from './components/shared/highlight/highlight.directive';
 
 @NgModule({
     imports: [
@@ -28,6 +31,8 @@ import { EmployeeService } from './components/employee-detail/employee.service';
     ],
     declarations: [
         AppComponent,
+        HighlightDirective,
+        TitleComponent,
         DashboardComponent,
         EmployeeDetailComponent,
         EmployeeListComponent,

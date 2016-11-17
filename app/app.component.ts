@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'app',
     template: `
-    <h1>{{title}}</h1>
+    <app-title [title]="title" [subtitle]="subtitle"></app-title>
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/employees" routerLinkActive="active">Employees</a>
@@ -17,4 +17,5 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
     title = 'Hyphen';
+    subtitle = 'Employees';
 }

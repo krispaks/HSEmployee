@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module'
+import './rxjs-extensions';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -13,6 +14,7 @@ import { AppComponent } from './app.component';
 import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EmployeeSearchComponent } from './components/employee-search/employee-search.component';
 
 import { EmployeeService } from './components/employee-detail/employee.service';
 
@@ -28,7 +30,8 @@ import { EmployeeService } from './components/employee-detail/employee.service';
         AppComponent,
         DashboardComponent,
         EmployeeDetailComponent,
-        EmployeeListComponent
+        EmployeeListComponent,
+        EmployeeSearchComponent
     ],
     providers: [
         EmployeeService

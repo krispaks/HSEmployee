@@ -16,10 +16,15 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeSearchComponent } from './components/employee-search/employee-search.component';
 import { TitleComponent } from './components/title/title.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 import { EmployeeService } from './components/employee-detail/employee.service';
+import { ContactService } from './components/contact/contact.service';
+import { UserService } from './components/shared/user/user.service';
 
 import { HighlightDirective } from './components/shared/highlight/highlight.directive';
+import { AwesomePipe } from './components/contact/awesome.pipe'; 
+
 
 @NgModule({
     imports: [
@@ -36,10 +41,14 @@ import { HighlightDirective } from './components/shared/highlight/highlight.dire
         DashboardComponent,
         EmployeeDetailComponent,
         EmployeeListComponent,
-        EmployeeSearchComponent
+        EmployeeSearchComponent,
+        ContactComponent,
+        AwesomePipe
     ],
     providers: [
-        EmployeeService
+        EmployeeService,
+        UserService,
+        ContactService
     ],
     bootstrap: [
         AppComponent

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+
+import { ContactModule } from './components/contact/contact.module';
 
 import { AppRoutingModule } from './app-routing.module'
 import './rxjs-extensions';
@@ -16,22 +18,20 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeSearchComponent } from './components/employee-search/employee-search.component';
 import { TitleComponent } from './components/title/title.component';
-import { ContactComponent } from './components/contact/contact.component';
 
 import { EmployeeService } from './components/employee-detail/employee.service';
-import { ContactService } from './components/contact/contact.service';
 import { UserService } from './components/shared/user/user.service';
 
 import { HighlightDirective } from './components/shared/highlight/highlight.directive';
-import { AwesomePipe } from './components/contact/awesome.pipe'; 
 
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
         HttpModule,
+        FormsModule,
         AppRoutingModule,
+        ContactModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService)
     ],
     declarations: [
@@ -41,14 +41,11 @@ import { AwesomePipe } from './components/contact/awesome.pipe';
         DashboardComponent,
         EmployeeDetailComponent,
         EmployeeListComponent,
-        EmployeeSearchComponent,
-        ContactComponent,
-        AwesomePipe
+        EmployeeSearchComponent
     ],
     providers: [
         EmployeeService,
-        UserService,
-        ContactService
+        UserService
     ],
     bootstrap: [
         AppComponent

@@ -22,6 +22,11 @@ const routes: Routes = [
     {
         path: 'detail/:id',
         component: EmployeeDetailComponent
+    },
+    {
+        path: 'contact',
+        redirectTo: '/contact',
+        pathMatch: 'full'
     }
 ];
 

@@ -8,11 +8,22 @@ import { ContactComponent } from './contact.component';
 import { ContactService } from './contact.service';
 import { HiglightDirective } from './highlight.directive';
 
+import { ContactRoutingModule } from './contact-routing.module';
+
 @NgModule({
-    imports: [ CommonModule, FormsModule ],
-    declarations: [ ContactComponent, HiglightDirective, AwesomePipe ],
-    exports: [ ContactComponent ],
-    providers: [ ContactService ]
+    imports: [ 
+        CommonModule, 
+        FormsModule,
+        ContactRoutingModule 
+    ],
+    declarations: [ 
+        ContactComponent,
+        HiglightDirective, 
+        AwesomePipe 
+    ],
+    providers: [ 
+        ContactService 
+    ]
 })
 
 export class ContactModule {}

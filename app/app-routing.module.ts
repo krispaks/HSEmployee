@@ -23,10 +23,14 @@ const routes: Routes = [
         path: 'detail/:id',
         component: EmployeeDetailComponent
     },
-    {
+    /*{
         path: 'contact',
         redirectTo: '/contact',
         pathMatch: 'full'
+    }*/
+    {
+        path: 'contact',
+        loadChildren: 'app/components/contact/contact.module#ContactModule'
     }
 ];
 

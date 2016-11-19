@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
-import { ContactModule } from './components/contact/contact.module';
+//import { ContactModule } from './components/contact/contact.module';
 
 import { AppRoutingModule } from './app-routing.module'
 import './rxjs-extensions';
@@ -31,7 +31,7 @@ import { HighlightDirective } from './components/shared/highlight/highlight.dire
         HttpModule,
         FormsModule,
         AppRoutingModule,
-        ContactModule,
+        //ContactModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService)
     ],
     declarations: [

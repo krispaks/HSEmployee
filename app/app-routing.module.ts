@@ -7,30 +7,12 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 
 const routes: Routes = [
     {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-    },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
-    },
-    {
-        path: 'employees',
-        component: EmployeeListComponent
-    },
-    {
-        path: 'detail/:id',
-        component: EmployeeDetailComponent
-    },
-    /*{
-        path: 'contact',
-        redirectTo: '/contact',
-        pathMatch: 'full'
-    }*/
-    {
         path: 'contact',
         loadChildren: 'app/components/contact/contact.module#ContactModule'
+    },
+    {
+        path: 'employee',
+        loadChildren: 'app/components/employee/employee.module#EmployeeModule'
     }
 ];
 

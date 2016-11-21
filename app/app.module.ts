@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'; 
 
+import { CoreModule } from './components/core/core.module';
 import { ContactModule } from './components/contact/contact.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,32 +13,17 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './components/employee-detail/in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { TitleComponent } from './components/title/title.component';
-
-import { UserService } from './components/shared/user/user.service';
-
-import { HighlightDirective } from './components/shared/highlight/highlight.directive';
-
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
-        FormsModule,
         AppRoutingModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
-        ContactModule
+        CoreModule,
+        ContactModule,
     ],
-    declarations: [
-        AppComponent,
-        HighlightDirective,
-        TitleComponent
-    ],
-    providers: [
-        UserService
-    ],
-    bootstrap: [
-        AppComponent
-    ]
+    declarations: [ AppComponent ],
+    bootstrap: [ AppComponent ]
 })
 
 export class AppModule {}

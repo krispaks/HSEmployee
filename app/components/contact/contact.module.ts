@@ -17,9 +17,9 @@ import { ContactRoutingModule } from './contact-routing.module';
         ContactRoutingModule 
     ],
     declarations: [ 
-        ContactComponent,
         HiglightDirective, 
-        AwesomePipe 
+        AwesomePipe,
+        ContactComponent 
     ],
     providers: [ 
         ContactService 

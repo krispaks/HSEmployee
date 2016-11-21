@@ -35,7 +35,7 @@ export class EmployeeSearchComponent implements OnInit {
     }
 
     gotoDetail(employee: Employee): void {
-        let link =['/detail', employee.id];
+        let link =['/employee/detail', employee.id];
         this.router.navigate(link);
     }
 

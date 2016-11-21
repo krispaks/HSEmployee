@@ -32,7 +32,7 @@ export class EmployeeListComponent implements OnInit {
     }
 
     gotoDetail(): void {
-        this.router.navigate(['/detail', this.selectedEmployee.id]);
+        this.router.navigate(['employee/detail', this.selectedEmployee.id]);
     }
 
     add(name: string): void {

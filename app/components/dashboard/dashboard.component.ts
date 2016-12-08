@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee-detail/employee';
 import { EmployeeService } from '../employee-detail/employee.service';
 
-import { DashboardCardData } from '../dashboard-card/dashboard-card.component';
-
+import { DashboardCard, DashboardCardDataItem } from '../dashboard-card/dashboard-card';
 
 @Component({
     moduleId: module.id,
@@ -16,16 +15,39 @@ export class DashboardComponent implements OnInit {
 
     employees: Employee[] = [];
 
-    newsTitle: string = "Company News";
-    companynews: DashboardCardData[] = [
-        { Id: 1, Name: "SupplyPro v20 released" },
-        { Id: 2, Name: "SupplyPro Map Feature included in V20"}
-    ];   
+    newsCard: DashboardCard;
+    blogCard: DashboardCard;
+    empSchedCard: DashboardCard;
 
     constructor(private employeeService: EmployeeService){ }
 
     ngOnInit(): void {
-        this.employeeService.getEmployees()
-            .then(employees => this.employees = employees.slice(1,5));
+        /*this.employeeService.getEmployees()
+            .then(employees => this.employees = employees.slice(1,5));*/
+
+        this.newsCard = {
+            Title: "Company News",
+            DataList: [
+                { Id: 1, Name: "SupplyPro v20 released" },
+                { Id: 2, Name: "SupplyPro Map Feature included in V20"}
+            ]
+        };
+
+        this.blogCard = {
+            Title: "HS Blogs",
+            DataList: [
+                { Id: 1, Name: "How to Create Angular Components" },
+                { Id: 2, Name: "How to Remove classic ASP"}
+            ]
+        };
+
+        this.empSchedCard = {
+            Title: "Employee Schedule",
+            DataList: [
+                { Id: 1, Name: "Khris is gonna be on Vacation Next week" },
+                { Id: 2, Name: "Someone is gonna be sick tomorrow"}
+            ]
+        };
     }
 }
+

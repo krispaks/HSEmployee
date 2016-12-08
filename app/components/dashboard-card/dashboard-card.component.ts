@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DashboardCard } from './dashboard-card';
 
 @Component({
     moduleId: module.id,
@@ -9,15 +10,7 @@ import { Component, Input } from '@angular/core';
 
 export class DashboardCardComponent
 {
-    @Input() Title: string = 'Card Title';
-    @Input() Data: DashboardCardData[] = [];
+    @Input() Data: DashboardCard;
     constructor(){
-
     }
-}
-
-export class DashboardCardData
-{
-    Id: number;
-    Name: string;
 }

@@ -1,0 +1,13 @@
+<div class="hs-dashboard-card">
+    <div class="hs-dashboard-title">
+        {{ Title }}
+    </div>
+    <div class="hs-dashboard-data">
+        <ul class="hs-dashboard-data-item">
+            <li *ngFor="let item of Data">
+                <span class="badge">{{item.Id}}</span> 
+                <span>{{item.Name}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
         HttpModule,
         AppRoutingModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
-        CoreModule.forRoot({username: 'Hello World'}),
+        CoreModule,
         ContactModule,
     ],
     declarations: [ AppComponent ],

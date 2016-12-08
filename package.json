@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Website for Hyphen",
   "scripts": {
-    "devStart": "webpack-dev-server --inline --progress --port 8080",
+    "devStart" : "webpack-dev-server --content-base ./",
+    "devStart1": "webpack-dev-server --inline --progress",
+    "devStart2" : "webpack-dev-server --progress --display-errors-details --inline --hot --content-base ./app",
+
     "build": "rimraf dist && webpack --config webpack.prod.js --progress --profile --bail",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",

@@ -9,6 +9,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
 import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
 import { EmployeeSearchComponent } from '../employee-search/employee-search.component';
+import { DashboardCardComponent } from '../dashboard-card/dashboard-card.component';
 
 import { EmployeeService } from '../employee-detail/employee.service';
 
@@ -23,7 +24,8 @@ import { EmployeeService } from '../employee-detail/employee.service';
         DashboardComponent,
         EmployeeListComponent,
         EmployeeDetailComponent,
-        EmployeeSearchComponent
+        EmployeeSearchComponent,
+        DashboardCardComponent
     ],
     providers: [
         EmployeeService

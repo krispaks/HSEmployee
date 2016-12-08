@@ -16,6 +16,6 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    title = 'Hyphen';
+    title = 'Hyphen Solutions Employee Portal';
     subtitle = '';
 }

@@ -12,6 +12,7 @@ import { EmployeeSearchComponent } from '../employee-search/employee-search.comp
 import { DashboardCardComponent } from '../dashboard-card/dashboard-card.component';
 
 import { EmployeeService } from '../employee-detail/employee.service';
+import { DashboardService } from '../dashboard/dashboard.service';
 
 @NgModule({
     imports:[
@@ -28,7 +29,8 @@ import { EmployeeService } from '../employee-detail/employee.service';
         DashboardCardComponent
     ],
     providers: [
-        EmployeeService
+        EmployeeService,
+        DashboardService
     ]
 })
 

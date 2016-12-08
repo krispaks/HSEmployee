@@ -3,6 +3,7 @@ import { Employee } from '../employee/employee';
 import { EmployeeService } from '../employee-detail/employee.service';
 
 import { DashboardCard, DashboardCardDataItem } from '../dashboard-card/dashboard-card';
+import { DashboardService } from '../dashboard/dashboard.service';
 
 @Component({
     moduleId: module.id,
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
     blogCard: DashboardCard;
     empSchedCard: DashboardCard;
 
-    constructor(private employeeService: EmployeeService){ }
+    constructor(private dashboardService: DashboardService){ }
 
     ngOnInit(): void {
         /*this.employeeService.getEmployees()

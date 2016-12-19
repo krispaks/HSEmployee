@@ -7,19 +7,21 @@ import { EmployeeListComponent } from '../employee-list/employee-list.component'
 import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
 
 const routes: Routes = [
-    {
-        path: '', component: EmployeeComponent
-    },
-    {
-        path: 'dashboard', component: DashboardComponent
-    },
-    {
-        path: 'employees', component: EmployeeListComponent
-    },
-    {
-        path: 'detail/:id', component: EmployeeDetailComponent
-    }
-];
+{
+    path: ''
+    , component: EmployeeComponent
+    , children: [
+        {
+            path: 'dashboard', component: DashboardComponent
+        },
+        {
+            path: 'employees', component: EmployeeListComponent
+        },
+        {
+            path: 'detail/:id', component: EmployeeDetailComponent
+        }
+    ]
+}];
 
 @NgModule({
     imports:[

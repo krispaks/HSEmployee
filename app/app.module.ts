@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'; 
 
 import { CoreModule } from './components/core/core.module';
-import { ContactModule } from './components/contact/contact.module';
+import { EmployeeModule } from './components/employee/employee.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import './rxjs-extensions';
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
         AppRoutingModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
         CoreModule,
-        ContactModule,
+        EmployeeModule,
     ],
     declarations: [ AppComponent ],
     bootstrap: [ AppComponent ]

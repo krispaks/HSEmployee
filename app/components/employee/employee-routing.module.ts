@@ -8,8 +8,7 @@ import { EmployeeDetailComponent } from '../employee-detail/employee-detail.comp
 
 const routes: Routes = [
 {
-    path: ''
-    , component: EmployeeComponent
+    path: 'employee' , component: EmployeeComponent
     , children: [
         {
             path: 'dashboard', component: DashboardComponent

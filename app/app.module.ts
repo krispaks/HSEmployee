@@ -10,7 +10,7 @@ import './rxjs-extensions';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryEmployeeDataService, InMemoryBlogDataService } from './components/in-memory-api/in-memory-data.service';
+import { InMemoryDataService } from './components/in-memory-api/in-memory-data.service';
 
 
 import { AppComponent } from './app.component';
@@ -19,8 +19,7 @@ import { AppComponent } from './app.component';
         BrowserModule,
         HttpModule,
         AppRoutingModule,
-        InMemoryWebApiModule.forRoot(InMemoryEmployeeDataService),
-        InMemoryWebApiModule.forRoot(InMemoryBlogDataService),
+        InMemoryWebApiModule.forRoot(InMemoryDataService),
         CoreModule,
         EmployeeModule
     ],

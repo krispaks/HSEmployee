@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-export class InMemoryEmployeeDataService implements InMemoryDbService {
+export class InMemoryDataService implements InMemoryDbService {
 
     createDb(){
         let employees = [
@@ -16,24 +16,12 @@ export class InMemoryEmployeeDataService implements InMemoryDbService {
             { id: 20, name: 'Leo Wolur' },
             { id: 21, name: 'Chris Sugg' }
         ];
-        return {employees};
-    }
-}
 
-export class InMemoryBlogDataService implements InMemoryDbService {
-    /*
-    id: number;
-    title: string;
-    post: string;
-    author: string;
-    postedDate: Date;
-    */
-    createDb(){
         let blogs = [
             { id: 1, title: 'Angular is Cool', post: 'The quick brown fox jumps over the lazy dog', author: 'Google', postedDate: new Date('12/20/2013')},
             { id: 2, title: 'Angular is Cooler', post: 'The quick brown fox jumps over the lazy dog', author: 'Facebook', postedDate: new Date('12/20/2013')},
             { id: 3, title: 'MVC is Coolest?', post: 'The quick brown fox jumps over the lazy dog', author: 'Microsoft', postedDate: new Date('12/20/2013')}
         ];
-        return {blogs}
+        return {employees, blogs};
     }
 }

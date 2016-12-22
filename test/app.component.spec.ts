@@ -20,14 +20,14 @@ describe('AppComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule // need to import if your component has routing
       ],
       declarations: [ AppComponent, TitleComponent],
       providers: [
           { provide: UserService, useValue: userServiceStub }
         ]
     })
-    .compileComponents();
+    .compileComponents(); //used when you have external templates in your component
   }));
 
   beforeEach(() => {

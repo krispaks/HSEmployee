@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { BlogRoutingModule } from './blog-routing.module';
 
+
 import { BlogComponent } from './blog.component';
+import { BlogListComponent } from '../blog-list/blog-list.component';
+import { BlogListItemComponent } from '../blog-list-item/blog-list-item.component';
+
+import { BlogService } from './blog.service';
 
 @NgModule({
     imports:[
@@ -11,9 +16,13 @@ import { BlogComponent } from './blog.component';
         BlogRoutingModule
     ],
     declarations:[
-        BlogComponent
+        BlogComponent,
+        BlogListComponent,
+        BlogListItemComponent
     ],
-    providers:[]
+    providers:[
+        BlogService
+    ]
 })
 
 export class BlogModule {}

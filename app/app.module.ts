@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
         AppRoutingModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
         CoreModule,
-        EmployeeModule,
+        EmployeeModule
     ],
     declarations: [ AppComponent ],
     bootstrap: [ AppComponent ]

@@ -8,7 +8,7 @@ import { Employee } from '../employee/employee';
 
 @Component({
     moduleId: module.id,
-    selector: 'employee-search',
+    selector: 'app-employee-search',
     templateUrl: './employee-search.component.html',
     styleUrls: ['./employee-search.component.css'],
     providers: [EmployeeSearchService]

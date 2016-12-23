@@ -7,7 +7,7 @@ import { DashboardService } from '../dashboard/dashboard.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'dashboard',
+    selector: 'app-dashboard',
     templateUrl: 'dashboard.component.html',
     styleUrls: ['./dashboard.component.css']
 })

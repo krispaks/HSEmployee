@@ -5,7 +5,7 @@ import { EmployeeService } from '../employee-detail/employee.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'employee-list',
+    selector: 'app-employee-list',
     templateUrl: './employee-list.component.html',
     styleUrls: ['./employee-list.component.css']
 })

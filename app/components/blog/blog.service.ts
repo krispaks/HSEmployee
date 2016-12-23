@@ -21,6 +21,14 @@ export class BlogService{
             .catch(this.handleError);
     }
 
+    getBlog(id: number): Promise<Blog>{
+        return this.getBlogs()
+            .then((blogs) => { 
+                    var bg = blogs.find(blog => blog.id === id);
+                    return bg;
+                });
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occured', error);
         return Promise.reject(error.message || error);

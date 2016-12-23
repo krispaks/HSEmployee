@@ -3,7 +3,7 @@ import { DashboardCard } from './dashboard-card';
 
 @Component({
     moduleId: module.id,
-    selector: 'dashboard-card',
+    selector: 'app-dashboard-card',
     templateUrl: './dashboard-card.component.html',
     styleUrls: ['./dashboard-card.component.css']
 })

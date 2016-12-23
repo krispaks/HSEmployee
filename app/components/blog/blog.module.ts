@@ -7,6 +7,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent } from './blog.component';
 import { BlogListComponent } from '../blog-list/blog-list.component';
 import { BlogListItemComponent } from '../blog-list-item/blog-list-item.component';
+import { BlogDetailComponent } from '../blog-detail/blog-detail.component';
 
 import { BlogService } from './blog.service';
 
@@ -18,7 +19,8 @@ import { BlogService } from './blog.service';
     declarations:[
         BlogComponent,
         BlogListComponent,
-        BlogListItemComponent
+        BlogListItemComponent,
+        BlogDetailComponent
     ],
     providers:[
         BlogService

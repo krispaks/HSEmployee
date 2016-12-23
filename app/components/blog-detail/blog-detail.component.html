@@ -1,0 +1,4 @@
+<div *ngIf="blog">
+    <header>{{blog.title}} - postedBy: {{blog.author}} on {{blog.postedDate | date:short}}</header>
+    <main>{{blog.post}}</main>
+</div>

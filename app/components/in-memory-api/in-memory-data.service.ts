@@ -22,6 +22,13 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 2, title: 'React is Cooler', post: 'The quick brown fox jumps over the lazy dog', author: 'Facebook', postedDate: new Date('12/20/2013')},
             { id: 3, title: 'MVC is Coolest?', post: 'The quick brown fox jumps over the lazy dog', author: 'Microsoft', postedDate: new Date('12/20/2013')}
         ];
-        return {employees, blogs};
+
+        let blogComments = [
+            { id: 1, comment: 'I dont like Angular', commentBy: 'reactFanboy', commentDate: new Date('12/20/2013')},
+            { id: 1, comment: 'I eat and drink Angular', commentBy: 'ngFanatic', commentDate: new Date('12/20/2013')},
+            { id: 1, comment: 'I love Server Side', commentBy: 'iEguy', commentDate: new Date('12/20/2013')},
+        ];
+
+        return {employees, blogs, blogComments};
     }
 }

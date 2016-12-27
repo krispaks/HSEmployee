@@ -1,4 +1,5 @@
 <div *ngIf="blog">
     <header>{{blog.title}} - postedBy: {{blog.author}} on {{blog.postedDate | date:short}}</header>
     <main>{{blog.post}}</main>
+    <app-blog-comment-list [blogId]="blog.id"></app-blog-comment-list>
 </div>

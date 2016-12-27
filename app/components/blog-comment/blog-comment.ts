@@ -1,6 +1,7 @@
 export class BlogComment{
     id: number;
-    comment: string;
+    blogId: number;
+    commentPost: string;
     commentBy: string;
     commentDate: Date;
 }

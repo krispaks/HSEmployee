@@ -1,7 +1,7 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { BlogComment } from '../blog-comment/blog-comment';
 
-import { BlogCommentService } from './blog-comment.service';;
+import { BlogCommentService } from './blog-comment.service';
+import { BlogComment } from './blog-comment';
 
 @Component({
     moduleId: module.id,
@@ -10,17 +10,13 @@ import { BlogCommentService } from './blog-comment.service';;
     styleUrls: ['./blog-comment.component.css']
 })
 export class BlogCommentComponent implements OnInit{
-    @Input() blogId: number;
+    @Input() comment: BlogComment;
 
     comments: BlogComment[];
 
     constructor(private commentService: BlogCommentService){}
 
     ngOnInit(): void {
-        if(this.blogId)
-        {
-            this.commentService.getBlogComments(this.blogId)
-                .then(comments => this.comments = comments);
-        }
+       
     }
 }

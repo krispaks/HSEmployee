@@ -14,11 +14,16 @@ export class BlogCommentService {
 
     constructor(private http: Http){}
 
-    getBlogComments(blogId: number): Promise<BlogComment[]>{
+    getBlogComments(): Promise<BlogComment[]>{
         return this.http.get(this.blogCommentUrl)
             .toPromise()
             .then(response => response.json().data as BlogComment[])
             .catch(this.handleError)
+    }
+
+    getBlogCommentsByBlogId(blogId: number): Promise<BlogComment[]> {
+        return this.getBlogComments()
+            .then(comments => comments.filter(comment => comment.blogId === blogId));
     }
 
     private handleError(error: any): Promise<any> {

@@ -1,6 +1,4 @@
 <h2>Latest Blogs</h2>
 <ul class="blogs">
-    <li *ngFor="let blog of blogs">
-        <app-blog-list-item [blog]="blog"></app-blog-list-item>
-    </li>
+    <app-blog-list-item *ngFor="let blog of blogs" [blog]="blog"></app-blog-list-item>
 </ul>

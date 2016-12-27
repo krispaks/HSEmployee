@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Blog } from '../blog/blog';
+import { Blog } from '../blog';
 
 @Component({
     moduleId: module.id,

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { EmployeeSearchService } from './employee-search.service';
-import { Employee } from '../employee/employee';
+import { Employee } from '../employee';
 
 @Component({
     moduleId: module.id,

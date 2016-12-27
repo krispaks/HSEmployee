@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 
-import { Employee } from '../employee/employee';
+import { Employee } from '../employee';
 import { EmployeeService } from './employee.service';
 
 @Component({

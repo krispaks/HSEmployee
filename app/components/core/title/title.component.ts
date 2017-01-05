@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { User } from '../user/user';
 
 @Component({
     moduleId: module.id,
@@ -7,12 +8,16 @@ import { UserService } from '../user/user.service';
     templateUrl: './title.component.html'
 })
 
-export class TitleComponent {
+export class TitleComponent implements OnInit {
     @Input() subtitle = '';
     @Input() title = '';
-    user = '';
+    user: User;
 
-    constructor(userService: UserService){
-        this.user = userService.username;
+    constructor(private userService: UserService){
+        
+    }
+
+    ngOnInit(): void {
+        this.user = this.userService.getUser('kpaca');
     }
 }

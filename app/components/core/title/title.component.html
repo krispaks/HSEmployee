@@ -1,4 +1,2 @@
 <h1 highlight>{{title}} {{subtitle}}</h1>
-<p *ngIf="user">
-    <i>Welcome, {{user}}</i>
-</p>
+<app-user-box [user]="user"></app-user-box>

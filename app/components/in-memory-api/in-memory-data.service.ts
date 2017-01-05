@@ -4,17 +4,17 @@ export class InMemoryDataService implements InMemoryDbService {
 
     createDb(){
         let employees = [
-            { id: 11, name: 'Khris Paca' },
-            { id: 12, name: 'Rick Donaldson' },
-            { id: 13, name: 'Carl Tu' },
-            { id: 14, name: 'Doug Ware' },
-            { id: 15, name: 'Chase Martin' },
-            { id: 16, name: 'Scott Yoon' },
-            { id: 17, name: 'David Bailey' },
-            { id: 18, name: 'Dagny Jewell' },
-            { id: 19, name: 'Aldwin Barlis' },
-            { id: 20, name: 'Leo Wolur' },
-            { id: 21, name: 'Chris Sugg' }
+            { id: 1, name: 'Khris Paca' },
+            { id: 2, name: 'Rick Donaldson' },
+            { id: 3, name: 'Carl Tu' },
+            { id: 4, name: 'Doug Ware' },
+            { id: 5, name: 'Chase Martin' },
+            { id: 6, name: 'Scott Yoon' },
+            { id: 7, name: 'David Bailey' },
+            { id: 8, name: 'Dagny Jewell' },
+            { id: 9, name: 'Aldwin Barlis' },
+            { id: 10, name: 'Leo Wolur' },
+            { id: 11, name: 'Chris Sugg' }
         ];
 
         let blogs = [
@@ -34,6 +34,18 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 8, blogId: 3, commentPost: 'is it 2010?', commentBy: 'ngFanatic', commentDate: new Date('12/20/2013')},
             { id: 9, blogId: 3, commentPost: 'i love microsoft', commentBy: 'iEguy', commentDate: new Date('12/20/2013')},
         ];
+
+        let users = [
+            { id: 1, username: 'kpaca' },
+            { id: 2, username: 'rdonaldson' },
+            { id: 3, username: 'ctu' }
+        ]
+
+        let userPermissions = [
+            { id: 1, userId: 1, canViewEmployee: true, canViewCalendar: true, canViewBlog: true },
+            { id: 2, userId: 2, canViewEmployee: true, canViewCalendar: true, canViewBlog: false },
+            { id: 3, userId: 3, canViewEmployee: true, canViewCalendar: false, canViewBlog: true }
+        ]
 
         return {employees, blogs, blogComments};
     }

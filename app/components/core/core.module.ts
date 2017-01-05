@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserService, UserServiceConfig } from './user/user.service';
 import { TitleComponent } from './title/title.component';
 import { LoginComponent } from './login/login.component';
+import { UserBoxComponent } from './user-box/user-box.component';
 
 @NgModule({
     imports: [
@@ -11,11 +12,13 @@ import { LoginComponent } from './login/login.component';
     ],
     declarations: [
         TitleComponent,
-        LoginComponent
+        LoginComponent,
+        UserBoxComponent
     ],
     exports: [
         TitleComponent,
-        LoginComponent
+        LoginComponent,
+        UserBoxComponent
     ],
     providers: [
         UserService

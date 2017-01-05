@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'; 
 
 import { CoreModule } from './components/core/core.module';
-import { EmployeeModule } from './components/employee/employee.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import './rxjs-extensions';
@@ -20,8 +19,7 @@ import { AppComponent } from './app.component';
         HttpModule,
         AppRoutingModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
-        CoreModule,
-        EmployeeModule
+        CoreModule
     ],
     declarations: [ AppComponent ],
     bootstrap: [ AppComponent ]

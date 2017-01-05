@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { EmployeeRoutingModule } from './employee-routing.module';
-import { SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { EmployeeComponent } from './employee.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
@@ -16,6 +16,7 @@ import { ContactComponent } from '../contact/contact.component';
 import { EmployeeService } from './employee-detail/employee.service';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { ContactService } from '../contact/contact.service';
+
 
 @NgModule({
     imports:[

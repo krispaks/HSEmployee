@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { UserService, UserServiceConfig } from './user/user.service';
 import { TitleComponent } from './title/title.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     imports: [
         CommonModule
     ],
     declarations: [
-        TitleComponent
+        TitleComponent,
+        LoginComponent
     ],
     exports: [
-        TitleComponent
+        TitleComponent,
+        LoginComponent
     ],
     providers: [
         UserService

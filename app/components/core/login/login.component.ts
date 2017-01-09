@@ -10,20 +10,26 @@ import { AuthService } from '../auth/auth.service'
 })
 
 export class LoginComponent {
+    username: string;
+    password: string;
+
     constructor(private router: Router, private auth: AuthService){}
 
     login(): void {
         // logic for login
         // call auth service and when successful navigate to employee
-        let isLoggedSuccess = this.auth.login();
+        let isLoggedSuccess = this.auth.login(this.username, this.password)
+            .subscribe(result => {
+                if(result) {
+                    this.router.navigate(['/employee']);
+                }
+                else 
+                {
+                    console.log('login failed');
+                }
+            });
 
-        if(isLoggedSuccess) {
-            this.router.navigate(['/employee']);
-        }
-        else 
-        {
-            console.log('login failed');
-        }
+        
     }
 
     forgotPassword(): void {

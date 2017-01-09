@@ -1,27 +1,31 @@
 import { NgModule, Optional, ModuleWithProviders, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { UserService, UserServiceConfig } from './user/user.service';
+import { AuthService } from './auth/auth.service';
+import { StorageService } from './storage/storage.service';
+
 import { TitleComponent } from './title/title.component';
 import { LoginComponent } from './login/login.component';
-import { UserBoxComponent } from './user-box/user-box.component';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     declarations: [
         TitleComponent,
-        LoginComponent,
-        UserBoxComponent
+        LoginComponent
     ],
     exports: [
         TitleComponent,
-        LoginComponent,
-        UserBoxComponent
+        LoginComponent
     ],
     providers: [
-        UserService
+        UserService,
+        AuthService,
+        StorageService
     ]
 })
 

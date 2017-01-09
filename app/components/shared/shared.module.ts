@@ -8,6 +8,8 @@ import { HighlightDirective } from './highlight/highlight.directive';
 
 import { TopNavComponent } from './top-nav/top-nav.component';
 
+import { UserBoxComponent } from './user-box/user-box.component';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -16,12 +18,14 @@ import { TopNavComponent } from './top-nav/top-nav.component';
     exports: [
         AwesomePipe, HighlightDirective,
         CommonModule, FormsModule,
-        TopNavComponent
+        TopNavComponent,
+        UserBoxComponent
     ],
     declarations: [
         AwesomePipe,
         HighlightDirective,
-        TopNavComponent
+        TopNavComponent,
+        UserBoxComponent
     ]
 })
 

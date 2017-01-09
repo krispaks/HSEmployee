@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service'
 
 @Component({
     moduleId: module.id,
@@ -9,11 +10,20 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-    constructor(private router: Router){}
+    constructor(private router: Router, private auth: AuthService){}
 
     login(): void {
         // logic for login
-        this.router.navigate(['/employee']);
+        // call auth service and when successful navigate to employee
+        let isLoggedSuccess = this.auth.login();
+
+        if(isLoggedSuccess) {
+            this.router.navigate(['/employee']);
+        }
+        else 
+        {
+            console.log('login failed');
+        }
     }
 
     forgotPassword(): void {

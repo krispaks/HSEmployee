@@ -13,11 +13,10 @@ export class TitleComponent implements OnInit {
     @Input() title = '';
     user: User;
 
-    constructor(private userService: UserService){
+    constructor(){
         
     }
 
     ngOnInit(): void {
-        this.user = this.userService.getUser('kpaca');
     }
 }

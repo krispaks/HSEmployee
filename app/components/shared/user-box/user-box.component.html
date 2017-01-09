@@ -1,0 +1,9 @@
+<p *ngIf="isLoggedIn">
+    <i>Welcome, {{user.username}}</i>
+</p>
+<p *ngIf="!isLoggedIn">
+    <a routerLink="login" routerLinkActive="true">login</a>
+</p>
+<p>
+    <button (click)="logout()">logout</button>
+</p>

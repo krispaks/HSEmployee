@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'; 
+//import { FormsModule } from '@angular/forms';
 
 import { CoreModule } from './components/core/core.module';
 
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     imports: [
         BrowserModule,
         HttpModule,
+        //FormsModule,
         AppRoutingModule,
         //InMemoryWebApiModule.forRoot(InMemoryDataService),
         CoreModule

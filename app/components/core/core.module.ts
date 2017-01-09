@@ -1,6 +1,7 @@
 import { NgModule, Optional, ModuleWithProviders, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { UserService, UserServiceConfig } from './user/user.service';
 import { AuthService } from './auth/auth.service';
@@ -12,7 +13,8 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        FormsModule
     ],
     declarations: [
         TitleComponent,

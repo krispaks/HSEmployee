@@ -1,28 +1,46 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, RequestOptionsArgs, Response } from '@angular/http';
+import { AuthService } from '../core/auth/auth.service';
+import { Observable } from  'rxjs';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Employee } from '../employee';
+import { Employee } from './employee';
 
 @Injectable()
 export class EmployeeService {
 
-    private employeeUrl = 'app/employees';
+    private employeeUrl = '/api/employees';
     private headers = new Headers({'Content-Type': 'application/json'});
 
-    constructor(private http:Http){}
+    constructor(private http:Http, private authService: AuthService){}
 
-    getEmployees(): Promise<Employee[]> {
-        return this.http.get(this.employeeUrl)
-            .toPromise()
-            .then(response => response.json().data as Employee[])
-            .catch(this.handleError)
+    getEmployees(): Observable<Employee[]> {
+
+        this.headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.authService.getToken()
+        });
+
+        return this.http.get(this.employeeUrl
+            , { headers: this.headers})
+            .map((response: Response) => {
+                if(response.status === 200)
+                {
+                    return response.json();
+                }
+                else
+                {
+                    
+                }
+            });
     }
 
     getEmployee(id: number): Promise<Employee>{
-        return this.getEmployees()
-            .then(employees => employees.find(employee => employee.id === id))
+        //return this.getEmployees()
+        //    .then(employees => employees.find(employee => employee.id === id))
+
+        return new Promise<Employee>(() => {});
     }
 
     update(employee: Employee): Promise<Employee> {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
-import { EmployeeService } from '../employee-detail/employee.service';
+import { EmployeeService } from '../employee.service';
 
 @Component({
     moduleId: module.id,
@@ -28,7 +28,7 @@ export class EmployeeListComponent implements OnInit {
 
     getEmployees(): void {
         this.employeeService.getEmployees()
-            .then(employees => this.employees = employees);
+            .subscribe(employees => this.employees = employees);
     }
 
     gotoDetail(): void {

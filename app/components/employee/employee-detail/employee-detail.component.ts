@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 
 import { Employee } from '../employee';
-import { EmployeeService } from './employee.service';
+import { EmployeeService } from '../employee.service';
 
 @Component({
     moduleId: module.id,

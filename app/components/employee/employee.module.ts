@@ -13,7 +13,7 @@ import { EmployeeSearchComponent } from './employee-search/employee-search.compo
 import { DashboardCardComponent } from '../dashboard-card/dashboard-card.component';
 import { ContactComponent } from '../contact/contact.component';
 
-import { EmployeeService } from './employee-detail/employee.service';
+import { EmployeeService } from './employee.service';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { ContactService } from '../contact/contact.service';
 

@@ -15,22 +15,36 @@ export class AuthService {
             username: username,
             password: password
         })).map((response: Response) => {
-            this.isLoggedIn = true;
 
+            let token = response.json() && response.json().token;
+            if(response.status === 200 && token)
+            {
+                this.storageService.setItem('user', JSON.stringify({
+                    username: username,
+                    token: token
+                }));
 
-            this.storageService.setItem('username', 'krispaks');
-
-            return this.isLoggedIn;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         });
     }
 
     logout(): boolean {
-        this.isLoggedIn = false;
-        this.storageService.removeItem('username');
+        this.storageService.removeItem('user');
         return true;
     }
 
     IsAuthenticated(): boolean {
-        return this.isLoggedIn;
+        let user = this.storageService.getItem('user');
+        return user ? true : false;
+    }
+
+    getToken(): string {
+        let user = this.storageService.getItem('user');
+        return user && JSON.parse(user).token;
     }
 }

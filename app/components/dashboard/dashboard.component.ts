@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee/employee';
-import { EmployeeService } from '../employee/employee-detail/employee.service';
+import { EmployeeService } from '../employee/employee.service';
 
 import { DashboardCard, DashboardCardDataItem } from '../dashboard-card/dashboard-card';
 import { DashboardService } from '../dashboard/dashboard.service';

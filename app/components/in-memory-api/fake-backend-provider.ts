@@ -56,15 +56,55 @@ export let fakeBackendProvider = {
                     && connection.request.method === RequestMethod.Post)
                 {
                     let params = JSON.parse(connection.request.getBody());
-
+                    let credential = {
+                        username: params.username,
+                        password: params.password
+                    };
                     // mock identity code
 
-                    let user = users.filter((username, password) => {
-                        
+                    let user = users.find((item, index, obj) => {
+                       if(item.username === credential.username && item.password === credential.password){
+                           return true;
+                       }
                     });
 
                     if(user){
-                        //user is found
+                        // return ok response with mock jwt
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({
+                                status: 200,
+                                body: {
+                                    token: 'fake-jwt-token'
+                                }
+                            })
+                        ));
+                    }
+                    else
+                    {
+                        // return ok without jwt
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({
+                                status: 200
+                            })
+                        ));
+                    }
+                }
+
+                if(connection.request.url.endsWith('/api/employees') 
+                    && connection.request.method === RequestMethod.Get){
+                    
+                    if(connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token'){
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({
+                                status: 200,
+                                body: employees
+                            })
+                        ));
+                    }
+                    else{
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({ status: 401 })
+                        ));
                     }
                 }
 

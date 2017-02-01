@@ -21,10 +21,11 @@ export class UserBoxComponent implements OnInit {
 
     ngOnInit(): void {
         this.isLoggedIn = this.auth.IsAuthenticated();
-        if(this.storageService.getItem('username'))
+        if(this.storageService.getItem('user'))
         {
             this.user = new User();
-            this.user.username = this.storageService.getItem('username');
+            let storedUser = JSON.parse(this.storageService.getItem('user'));
+            this.user.username = storedUser.username;
         }
     }
 

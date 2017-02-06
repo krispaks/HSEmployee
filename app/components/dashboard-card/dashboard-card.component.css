@@ -1,4 +1,17 @@
 .hs-dashboard-card {
-    width: 300px;
-    height: 300px
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+}
+
+.hs-dashboard-content {
+    height: 90px;
+}
+
+.hs-dashboard-card-action{
+    margin-bottom: auto;
+}
+
+.hs-dashboard-list-item {
+    font-size: small;
 }

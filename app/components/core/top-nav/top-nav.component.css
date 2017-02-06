@@ -16,3 +16,23 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+
+.hs-banner {
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+}
+
+.hs-logo {
+  margin-right: auto;
+}
+
+.hs-user {
+  margin-left: auto;
+}
+
+.hs-nav {
+  width: 100px;
+  text-align: center;
+  margin: 1px;
+}
+

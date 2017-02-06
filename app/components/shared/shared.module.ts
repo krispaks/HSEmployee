@@ -6,9 +6,9 @@ import { RouterModule } from '@angular/router';
 import { AwesomePipe } from './awesome/awesome.pipe';
 import { HighlightDirective } from './highlight/highlight.directive';
 
-import { TopNavComponent } from './top-nav/top-nav.component';
+//import { TopNavComponent } from './top-nav/top-nav.component';
 
-import { UserBoxComponent } from './user-box/user-box.component';
+//import { UserBoxComponent } from './user-box/user-box.component';
 
 @NgModule({
     imports: [
@@ -18,14 +18,14 @@ import { UserBoxComponent } from './user-box/user-box.component';
     exports: [
         AwesomePipe, HighlightDirective,
         CommonModule, FormsModule,
-        TopNavComponent,
-        UserBoxComponent
+        //TopNavComponent,
+        //UserBoxComponent
     ],
     declarations: [
         AwesomePipe,
         HighlightDirective,
-        TopNavComponent,
-        UserBoxComponent
+        //TopNavComponent,
+        //UserBoxComponent
     ]
 })
 

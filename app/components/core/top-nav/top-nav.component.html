@@ -1,5 +1,15 @@
-<nav>
-    <a routerLink="/employee" routerLinkActive="active">Employees</a>
-    <a routerLink="/schedule" routerLinkActive="active">Calendar</a>
-    <a routerLink="/blog" routerLinkActive="active">Blog</a>
+<nav md-tab-nav-bar>
+    <a class="hs-nav" routerLink="/employee" routerLinkActive="active">Employees</a>
+    <a class="hs-nav" routerLink="/schedule" routerLinkActive="active">Calendar</a>
+    <a class="hs-nav" routerLink="/blog" routerLinkActive="active">Blog</a>
 </nav>
+<div class="hs-banner">
+    <div class="hs-logo">
+        <img src="/assets/images/logo.svg">
+    </div>
+    <div class="hs-user">
+        <app-user-box></app-user-box>
+    </div>
+</div>
+<div class="clear">
+</div>

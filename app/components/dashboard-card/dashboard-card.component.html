@@ -1,4 +1,4 @@
-<div class="hs-dashboard-card">
+<!--<div class="hs-dashboard-card">
     <div class="hs-dashboard-title">
         {{ Data.Title }}
     </div>
@@ -10,4 +10,25 @@
             </li>
         </ul>
     </div>
-</div>
+</div>-->
+
+<md-card class="hs-dashboard-card">
+    <md-card-header>
+        <md-card-title><md-icon>home</md-icon> {{ Data.Title }}</md-card-title>
+    </md-card-header>
+    <md-card-content class="hs-dashboard-content">
+        <md-list>
+            <md-list-item *ngFor="let item of Data.DataList">
+                <a href="#" class="hs-dashboard-list-item">{{item.Name}}</a>
+            </md-list-item>
+        </md-list>
+         <!--<ul class="hs-dashboard-data-item">
+            <li *ngFor="let item of Data.DataList">
+                <span>{{item.Name}}</span>
+            </li>
+        </ul>-->
+    </md-card-content>
+    <md-card-actions class="hs-dashboard-card-action">
+        <button md-mini-fab>Go</button>
+    </md-card-actions>
+</md-card>

@@ -9,6 +9,7 @@ import { StorageService } from './storage/storage.service';
 
 import { TitleComponent } from './title/title.component';
 import { LoginComponent } from './login/login.component';
+import { TopNavComponent } from './top-nav/top-nav.component';
 
 @NgModule({
     imports: [
@@ -18,11 +19,13 @@ import { LoginComponent } from './login/login.component';
     ],
     declarations: [
         TitleComponent,
-        LoginComponent
+        LoginComponent,
+        TopNavComponent
     ],
     exports: [
         TitleComponent,
-        LoginComponent
+        LoginComponent,
+        TopNavComponent
     ],
     providers: [
         UserService,

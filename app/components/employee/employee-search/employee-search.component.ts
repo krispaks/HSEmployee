@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+
 import { EmployeeSearchService } from './employee-search.service';
 import { Employee } from '../employee';
 
@@ -26,8 +31,7 @@ export class EmployeeSearchComponent implements OnInit {
         this.employees = this.searchTerms
             .debounceTime(300)
             .distinctUntilChanged()
-            .switchMap(term => term ? this.employeeSearchService.search(term) : 
-                                        Observable.of<Employee[]>([]))
+            .switchMap(term => term ? this.employeeSearchService.search(term) : Observable.of<Employee[]>([]))
             .catch(error => {
                 console.log(error);
                 return Observable.of<Employee[]>([]);

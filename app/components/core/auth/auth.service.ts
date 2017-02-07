@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '../storage/storage.service';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {

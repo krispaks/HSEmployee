@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { CoreModule } from './components/core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import './rxjs-extensions';
+//import './rxjs-extensions';
 
 
 // Imports for loading & configuring the in-memory web api

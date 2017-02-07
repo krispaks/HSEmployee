@@ -1,12 +1,12 @@
 <h1>{{title}}</h1>
-<h2>Hyphen Employees</h2>
+<h2>Employees</h2>
 <app-employee-search></app-employee-search>
-<div>
+<!--<div>
     <label>Employee name:</label> <input #employeeName/>
     <button (click)="add(employeeName.value); employeeName.value=''">
         Add
     </button>
-</div>
+</div>-->
 <ul class="heroes">
     <li *ngFor="let employee of employees"
         [class.selected]="employee === selectedEmployee" 

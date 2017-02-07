@@ -90,6 +90,7 @@ export let fakeBackendProvider = {
                     }
                 }
 
+                //get all employees
                 if(connection.request.url.endsWith('/api/employees') 
                     && connection.request.method === RequestMethod.Get){
                     
@@ -99,6 +100,28 @@ export let fakeBackendProvider = {
                                 status: 200,
                                 body: employees
                             })
+                        ));
+                    }
+                    else{
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({ status: 401 })
+                        ));
+                    }
+                }
+
+                if(connection.request.url.includes('/api/employees/?name=') 
+                    && connection.request.method === RequestMethod.Get){
+
+                    if(connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token'){
+                        let arr = connection.request.url.split('/');
+                        let search = arr[3].split('=');
+                        let result = employees.filter((item)=> { 
+                            return item.name.toLowerCase().includes(search[1].toLowerCase());
+                        });
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({
+                                status: 200,
+                                body: result})
                         ));
                     }
                     else{

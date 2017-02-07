@@ -5,7 +5,7 @@
 .dashboard-content{
   display: flex;
   flex-wrap: wrap;
-  vertical-align: middle;
+  justify-content: center;
 }
 
 /*[class*='col-'] {

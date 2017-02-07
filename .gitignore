@@ -16,3 +16,5 @@ _temp
 !wallaby.js
 
 dist
+
+npm-debug.log

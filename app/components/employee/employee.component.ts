@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -9,4 +10,9 @@ import { Component } from '@angular/core';
 
 export class EmployeeComponent {
 
+    constructor(private router: Router){}
+
+    private navigateTo(route: string): void{
+        this.router.navigate(['employee/' + route]);
+    }
 }

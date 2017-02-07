@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee/employee';
-import { EmployeeService } from '../employee/employee.service';
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
 
 import { DashboardCard, DashboardCardDataItem } from '../dashboard-card/dashboard-card';
 import { DashboardService } from '../dashboard/dashboard.service';
@@ -31,7 +31,8 @@ export class DashboardComponent implements OnInit {
             DataList: [
                 { Id: 1, Name: "SupplyPro v20 released" },
                 { Id: 2, Name: "SupplyPro Map Feature included in V20"}
-            ]
+            ],
+            Icon: "tv"
         };
 
         this.blogCard = {
@@ -39,7 +40,8 @@ export class DashboardComponent implements OnInit {
             DataList: [
                 { Id: 1, Name: "How to Create Angular Components" },
                 { Id: 2, Name: "How to Remove classic ASP"}
-            ]
+            ],
+            Icon: "adjust"
         };
 
         this.empSchedCard = {
@@ -47,7 +49,8 @@ export class DashboardComponent implements OnInit {
             DataList: [
                 { Id: 1, Name: "Khris is gonna be on Vacation Next week" },
                 { Id: 2, Name: "Someone is gonna be sick tomorrow"}
-            ]
+            ],
+            Icon: "access_time"
         };
     }
 }

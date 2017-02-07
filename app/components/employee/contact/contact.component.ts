@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ContactService, Contact } from './contact.service';
-import { UserService } from '../core/user/user.service';
+import { UserService } from '../../core/user/user.service';
 
 @Component({
     moduleId: module.id,

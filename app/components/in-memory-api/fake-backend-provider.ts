@@ -131,6 +131,24 @@ export let fakeBackendProvider = {
                     }
                 }
 
+                if(connection.request.url.includes('/api/blogs') 
+                    && connection.request.method === RequestMethod.Get){
+
+                    if(connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token'){
+                       
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({
+                                status: 200,
+                                body: blogs})
+                        ));
+                    }
+                    else{
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({ status: 401 })
+                        ));
+                    }
+                }
+
 
             }, 500);
         })

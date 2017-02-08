@@ -11,7 +11,7 @@ import { Employee } from './employee';
 export class EmployeeService {
 
     private employeeUrl = '/api/employees';
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private headers: Headers;
 
     constructor(private http:Http, private authService: AuthService){}
 

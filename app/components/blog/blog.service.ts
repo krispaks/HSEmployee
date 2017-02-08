@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
+import { AuthService } from '../core/auth/auth.service';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -7,17 +8,23 @@ import { Blog } from './blog';
 
 @Injectable()
 export class BlogService{
-    private blogUrl = 'app/blogs';
-    private headers = new Headers({
-        'Content-Type': 'application/json'
-    });
+    private blogUrl = '/api/blogs';
+    private headers: Headers;
 
-    constructor(private http: Http){}
+    constructor(private http: Http, private authService: AuthService){}
 
     getBlogs(): Promise<Blog[]>{
-        return this.http.get(this.blogUrl)
+
+        this.headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.authService.getToken()
+        });
+
+        return this.http.get(this.blogUrl, { headers: this.headers})
             .toPromise()
-            .then(response => response.json().data as Blog[])
+            .then((r: Response) => { 
+                return r.json(); 
+            })
             .catch(this.handleError);
     }
 

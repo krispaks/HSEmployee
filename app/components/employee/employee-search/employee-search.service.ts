@@ -19,7 +19,7 @@ export class EmployeeSearchService {
         return this.http
                     .get(`/api/employees/?name=${term}`, { headers: this.headers})
                     .map((r: Response) => {
-                        return r.json().data as Employee[]
+                        return r.json()
                     })
     }
 }

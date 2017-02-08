@@ -2,6 +2,7 @@ import { Component, Input, OnInit} from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Blog } from '../blog';
 import { BlogService } from '../blog.service';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
     moduleId: module.id,

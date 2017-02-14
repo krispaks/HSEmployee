@@ -26,6 +26,8 @@
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+      '@ngrx/store': 'npm:@ngrx/store/bundles/store.umd.js',
+      '@ngrx/core': 'npm:@ngrx/core/bundles/core.umd.js',
 
       // other libraries
       'rxjs': 'npm:rxjs',

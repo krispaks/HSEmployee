@@ -3,37 +3,34 @@ import { Headers, Http, RequestOptionsArgs, Response } from '@angular/http';
 import { AuthService } from '../core/auth/auth.service';
 import { Observable } from  'rxjs/Observable';
 
+import { Store } from '@ngrx/store';
+
 import 'rxjs/add/operator/toPromise';
 
-import { Employee } from './employee';
+import { Employee, EmployeeStore } from './employee';
 
 @Injectable()
 export class EmployeeService {
 
     private employeeUrl = '/api/employees';
     private headers: Headers;
+    public employees: Observable<Employee[]>;
 
-    constructor(private http:Http, private authService: AuthService){}
+    constructor(private http:Http, private authService: AuthService, private store: Store<EmployeeStore>){
+        this.employees = store.select('employeeList');
+    }
 
-    getEmployees(): Observable<Employee[]> {
+    getEmployees() {
 
         this.headers = new Headers({
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + this.authService.getToken()
         });
 
-        return this.http.get(this.employeeUrl
-            , { headers: this.headers})
-            .map((response: Response) => {
-                if(response.status === 200)
-                {
-                    return response.json();
-                }
-                else
-                {
-                    
-                }
-            });
+        return this.http.get(this.employeeUrl , { headers: this.headers})
+            .map((response: Response) => response.json())
+            .map(payload => ({ type: 'ADD_EMPLOYEE_LIST', payload}))
+            .subscribe(action => this.store.dispatch(action));
     }
 
     getEmployee(id: number): Promise<Employee>{

@@ -22,6 +22,9 @@ import { fakeBackendProvider } from '../in-memory-api/fake-backend-provider';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
+import { StoreModule } from '@ngrx/store';
+import { employeeList } from './reducer/employee-list.reducer'
+
 
 @NgModule({
     imports:[
@@ -29,7 +32,8 @@ import { BaseRequestOptions } from '@angular/http';
         FormsModule,
         EmployeeRoutingModule,
         SharedModule,
-        MaterialModule
+        MaterialModule,
+        StoreModule.provideStore({employeeList})
     ],
     declarations:[
         EmployeeComponent,

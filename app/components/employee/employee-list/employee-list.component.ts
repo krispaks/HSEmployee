@@ -18,8 +18,9 @@ export class EmployeeListComponent implements OnInit {
         private router: Router, 
         private employeeService: EmployeeService){}
 
-    ngOnInit(): void{
+    ngOnInit(): void{        
       this.getEmployees();
+      this.employeeService.getEmployees();
     }
 
     onSelect(employee: Employee): void {
@@ -27,7 +28,7 @@ export class EmployeeListComponent implements OnInit {
     }
 
     getEmployees(): void {
-        this.employeeService.getEmployees()
+        this.employeeService.employees
             .subscribe(employees => this.employees = employees);
     }
 

@@ -8,10 +8,8 @@
     </button>
 </div>-->
 <ul class="heroes">
-    <li *ngFor="let employee of employees"
-        [class.selected]="employee === selectedEmployee" 
-        (click)="onSelect(employee)">
-
+    <!--<li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">-->
+    <li *ngFor="let employee of employees | async" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
         <span class="badge">{{employee.id}}</span> 
         <span>{{employee.name}}</span>
         <button class="delete" (click)="delete(employee); $event.stopPropagation()">x</button>

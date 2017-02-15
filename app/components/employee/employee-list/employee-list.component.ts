@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     moduleId: module.id,
@@ -11,7 +12,8 @@ import { EmployeeService } from '../employee.service';
 })
 
 export class EmployeeListComponent implements OnInit {
-    employees: Employee[];
+    //employees: Employee[];
+    employees: Observable<Array<Employee>>;
     selectedEmployee: Employee;
 
     constructor(
@@ -19,7 +21,7 @@ export class EmployeeListComponent implements OnInit {
         private employeeService: EmployeeService){}
 
     ngOnInit(): void{        
-      this.getEmployees();
+      this.employees = this.employeeService.employees;
       this.employeeService.getEmployees();
     }
 
@@ -28,8 +30,8 @@ export class EmployeeListComponent implements OnInit {
     }
 
     getEmployees(): void {
-        this.employeeService.employees
-            .subscribe(employees => this.employees = employees);
+        /*this.employeeService.employees
+            .subscribe(employees => this.employees = employees);*/
     }
 
     gotoDetail(): void {
@@ -41,8 +43,8 @@ export class EmployeeListComponent implements OnInit {
         if(!name) { return; }
         this.employeeService.create(name)
             .then(employee => {
-                this.employees.push(employee);
-                this.selectedEmployee = null;
+                //this.employees.push(employee);
+                //this.selectedEmployee = null;
             });
     }
 
@@ -50,8 +52,8 @@ export class EmployeeListComponent implements OnInit {
         this.employeeService
             .delete(employee.id)
             .then(() => {
-                this.employees = this.employees.filter(h => h !== employee);
-                if(this.selectedEmployee === employee) { this.selectedEmployee = null; }
+                //this.employees = this.employees.filter(h => h !== employee);
+                //if(this.selectedEmployee === employee) { this.selectedEmployee = null; }
             });
     }
 }

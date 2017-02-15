@@ -14,7 +14,8 @@ export class EmployeeService {
 
     private employeeUrl = '/api/employees';
     private headers: Headers;
-    public employees: Observable<Employee[]>;
+    //public employees: Observable<Employee[]>;
+    public employees: Observable<Array<Employee>>;
 
     constructor(private http:Http, private authService: AuthService, private store: Store<EmployeeStore>){
         this.employees = store.select('employeeList');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/Observable';
     moduleId: module.id,
     selector: 'app-employee-list',
     templateUrl: './employee-list.component.html',
-    styleUrls: ['./employee-list.component.css']
+    styleUrls: ['./employee-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class EmployeeListComponent implements OnInit {
@@ -22,11 +23,13 @@ export class EmployeeListComponent implements OnInit {
 
     ngOnInit(): void{        
       this.employees = this.employeeService.employees;
+      this.employeeService.selectedEmployee.map(employee => this.selectedEmployee = employee);
       this.employeeService.getEmployees();
     }
 
     onSelect(employee: Employee): void {
-        this.selectedEmployee = employee;
+        //this.selectedEmployee = employee;
+        this.employeeService.setSelectedEmployee(employee);
     }
 
     getEmployees(): void {

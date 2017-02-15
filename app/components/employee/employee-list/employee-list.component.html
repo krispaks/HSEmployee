@@ -1,21 +1,16 @@
 <h1>{{title}}</h1>
 <h2>Employees</h2>
 <app-employee-search></app-employee-search>
-<!--<div>
-    <label>Employee name:</label> <input #employeeName/>
-    <button (click)="add(employeeName.value); employeeName.value=''">
-        Add
-    </button>
-</div>-->
 <ul class="heroes">
-    <!--<li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">-->
-    <li *ngFor="let employee of employees | async" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+    <li *ngFor="let employee of employees | async" 
+        [class.selected]="employee === selectedEmployee" 
+        (click)="onSelect(employee)">
         <span class="badge">{{employee.id}}</span> 
         <span>{{employee.name}}</span>
         <button class="delete" (click)="delete(employee); $event.stopPropagation()">x</button>
     </li>
 </ul>
-<div *ngIf="selectedEmployee">
+<div *ngIf="selectedEmployee | async">
     <h2>
         {{selectedEmployee.name | uppercase}} is a Hyphen Employee
     </h2>

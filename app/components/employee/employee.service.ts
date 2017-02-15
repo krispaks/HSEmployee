@@ -8,6 +8,7 @@ import { Store } from '@ngrx/store';
 import 'rxjs/add/operator/toPromise';
 
 import { Employee, EmployeeStore } from './employee';
+import { ADD_EMPLOYEE, SELECT_EMPLOYEE } from './reducer/employee-list.reducer';
 
 @Injectable()
 export class EmployeeService {
@@ -16,9 +17,12 @@ export class EmployeeService {
     private headers: Headers;
     //public employees: Observable<Employee[]>;
     public employees: Observable<Array<Employee>>;
+    public selectedEmployee: Observable<Employee>;
 
     constructor(private http:Http, private authService: AuthService, private store: Store<EmployeeStore>){
+        //this gets an observable instasnce of employeelist inside the store
         this.employees = store.select('employeeList');
+        this.selectedEmployee = store.select('selectedEmployee');
     }
 
     getEmployees() {
@@ -28,10 +32,14 @@ export class EmployeeService {
             'Authorization': 'Bearer ' + this.authService.getToken()
         });
 
-        return this.http.get(this.employeeUrl , { headers: this.headers})
+        this.http.get(this.employeeUrl , { headers: this.headers})
             .map((response: Response) => response.json())
-            .map(payload => ({ type: 'ADD_EMPLOYEE_LIST', payload}))
+            .map(payload => ({type: ADD_EMPLOYEE, payload}))
             .subscribe(action => this.store.dispatch(action));
+    }
+
+    setSelectedEmployee(employee: Employee){
+        this.store.dispatch({type: SELECT_EMPLOYEE, payload: employee});
     }
 
     getEmployee(id: number): Promise<Employee>{

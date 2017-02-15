@@ -23,7 +23,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
 import { StoreModule } from '@ngrx/store';
-import { employeeList } from './reducer/employee-list.reducer'
+import { employeeList, selectedEmployee } from './reducer/employee-list.reducer'
 
 
 @NgModule({
@@ -33,7 +33,7 @@ import { employeeList } from './reducer/employee-list.reducer'
         EmployeeRoutingModule,
         SharedModule,
         MaterialModule,
-        StoreModule.provideStore({employeeList})
+        StoreModule.provideStore({employeeList, selectedEmployee})
     ],
     declarations:[
         EmployeeComponent,

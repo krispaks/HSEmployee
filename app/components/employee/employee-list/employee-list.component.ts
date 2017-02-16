@@ -29,7 +29,6 @@ export class EmployeeListComponent implements OnInit {
     }
 
     onSelect(employee: Employee): void {
-        //this.selectedEmployee = employee;
         this.employeeService.setSelectedEmployee(employee);
     }
 

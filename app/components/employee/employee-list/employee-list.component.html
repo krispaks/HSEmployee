@@ -10,7 +10,7 @@
         <button class="delete" (click)="delete(employee); $event.stopPropagation()">x</button>
     </li>
 </ul>
-<div *ngIf="selectedEmployee | async">
+<div *ngIf="selectedEmployee">
     <h2>
         {{selectedEmployee.name | uppercase}} is a Hyphen Employee
     </h2>

@@ -13,6 +13,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
 import { ContactComponent } from './contact/contact.component';
+import { EmployeeCardComponent } from './employee-card/employee-card.component';
 
 import { EmployeeService } from './employee.service';
 import { DashboardService } from './dashboard/dashboard.service';
@@ -42,7 +43,8 @@ import { employeeList, selectedEmployee } from './reducer/employee-list.reducer'
         EmployeeDetailComponent,
         EmployeeSearchComponent,
         DashboardCardComponent,
-        ContactComponent
+        ContactComponent,
+        EmployeeCardComponent
     ],
     providers: [
         fakeBackendProvider,

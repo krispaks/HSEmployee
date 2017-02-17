@@ -1,0 +1,10 @@
+.employee-card{
+    width: 160px;
+    height: 330px;
+    margin: 10px;
+}
+
+.employee-avatar {
+    background-image: url('assets/images/vendetta.ico');
+     background-size: cover;
+}

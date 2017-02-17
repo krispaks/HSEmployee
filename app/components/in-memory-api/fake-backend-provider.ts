@@ -7,13 +7,13 @@ export let fakeBackendProvider = {
         let employees = [
             { id: 1, name: 'Khris Paca', position: 'Developer', image: 'angular.png', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit mauris.' },
             { id: 2, name: 'Rick Donaldson', position: 'Team Lead', image: 'aurelia.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris.' },
-            { id: 3, name: 'Carl Tu', position: 'Senior Developer', image: 'react.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.' },
+            { id: 3, name: 'Carl Tu', position: 'Senior Developer', image: 'react.svg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.' },
             { id: 4, name: 'Doug Ware', position: 'Developer', image: 'aurelia.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.' },
             { id: 5, name: 'Chase Martin', position: 'Developer', image: 'aurelia.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis ipsum. Praesent mauris.' },
             { id: 6, name: 'Scott Yoon', position: 'Team Lead', image: 'angular.png', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.' },
             { id: 7, name: 'David Bailey', position: 'Developer', image: 'aurelia.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. . Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.' },
-            { id: 8, name: 'Dagny Jewell', position: 'Business', image: 'react.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.' },
-            { id: 9, name: 'Aldwin Barlis', position: 'Infrastructure', image: 'react.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis ipsum. Praesent mauri.' },
+            { id: 8, name: 'Dagny Jewell', position: 'Business', image: 'react.svg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.' },
+            { id: 9, name: 'Aldwin Barlis', position: 'Infrastructure', image: 'react.svg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis ipsum. Praesent mauri.' },
             { id: 10, name: 'Leo Wolur', position: 'QA', image: 'aurelia.jpg', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.' },
             { id: 11, name: 'Chris Sugg', position: 'CIO', image: 'angular.png', shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. ' },
         ];

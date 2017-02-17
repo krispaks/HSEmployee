@@ -1,13 +1,17 @@
 <md-card class="employee-card">
-  <md-card-header>
+  <md-card-header class="employee-card-header">
     <div md-card-avatar class="employee-avatar"></div>
     <md-card-title>{{employee.name}}</md-card-title>
     <md-card-subtitle>{{employee.position}}</md-card-subtitle>
   </md-card-header>
-  <img md-card-image class="employee-image" src='{{"assets/images/" + employee.image}}'>
+  <div class="employee-card-image">
+    <div class="employee-card-inner">
+      <img md-card-image class="employee-image" src='{{"assets/images/" + employee.image}}'>
+    </div>
+  </div>
   <md-card-content>
   </md-card-content>
   <md-card-actions>
-    <button md-button>Detail</button>
+    <button md-mini-fab><md-icon>input</md-icon></button>
   </md-card-actions>
 </md-card>

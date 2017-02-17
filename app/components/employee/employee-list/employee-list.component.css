@@ -1,3 +1,7 @@
+.employee-list-header{
+    text-align: center
+}
+
 .employees-container {
     margin-top: 50px;
     display: flex;
@@ -63,4 +67,9 @@ button.delete {
   margin-right: .8em;
   background-color: gray !important;
   color:white;
+}
+
+#search-box{
+  width: 200px;
+  height: 20px;
 }

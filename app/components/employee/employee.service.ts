@@ -32,7 +32,19 @@ export class EmployeeService {
             'Authorization': 'Bearer ' + this.authService.getToken()
         });
 
-        this.http.get(this.employeeUrl , { headers: this.headers})
+        this.http.get(this.employeeUrl , { headers: this.headers })
+            .map((response: Response) => response.json())
+            .map(payload => ({type: ADD_EMPLOYEE, payload}))
+            .subscribe(action => this.store.dispatch(action));
+    }
+
+    getSearchEmployees(searchCriteria: string){
+        this.headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.authService.getToken()
+        });
+
+        this.http.get(`/api/employees/?name=${searchCriteria}` , { headers: this.headers })
             .map((response: Response) => response.json())
             .map(payload => ({type: ADD_EMPLOYEE, payload}))
             .subscribe(action => this.store.dispatch(action));

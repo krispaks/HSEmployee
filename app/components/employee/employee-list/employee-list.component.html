@@ -1,16 +1,8 @@
-<h1>{{title}}</h1>
-<h2>Employees</h2>
-<app-employee-search></app-employee-search>
-<!--<ul class="heroes">
-    <li *ngFor="let employee of employees | async" 
-        [class.selected]="employee === selectedEmployee" 
-        (click)="onSelect(employee)">
-        <span class="badge">{{employee.id}}</span> 
-        <span>{{employee.name}}</span>
-        <button class="delete" (click)="delete(employee); $event.stopPropagation()">x</button>
-    </li>
-</ul>-->
-<!-- probably better if we use cards with picture -->
+<div class="employee-list-header">
+  <h3>Employees</h3>
+</div>
+<!--<app-employee-search></app-employee-search>-->
+<input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
 <div class="employees-container">
     <app-employee-card *ngFor="let employee of employees | async" [employee]="employee"></app-employee-card>
 </div>

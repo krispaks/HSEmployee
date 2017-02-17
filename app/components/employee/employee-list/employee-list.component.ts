@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
     moduleId: module.id,
@@ -16,6 +17,7 @@ export class EmployeeListComponent implements OnInit {
     //employees: Employee[];
     employees: Observable<Array<Employee>>;
     selectedEmployee: Employee;
+    searchCritera = new Subject<string>();
 
     constructor(
         private router: Router, 
@@ -26,6 +28,13 @@ export class EmployeeListComponent implements OnInit {
       this.employeeService.selectedEmployee
             .subscribe(employee => this.selectedEmployee = employee);
       this.employeeService.getEmployees();
+
+      this.searchCritera
+            .debounceTime(300)
+            .distinctUntilChanged()
+            .subscribe(criteria => {
+                this.employeeService.getSearchEmployees(criteria);
+            });
     }
 
     onSelect(employee: Employee): void {
@@ -58,5 +67,10 @@ export class EmployeeListComponent implements OnInit {
                 //this.employees = this.employees.filter(h => h !== employee);
                 //if(this.selectedEmployee === employee) { this.selectedEmployee = null; }
             });
+    }
+
+    search(criteria: string): void
+    {
+        this.searchCritera.next(criteria);
     }
 }

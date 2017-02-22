@@ -1,0 +1,10 @@
+<div>
+    <button (click)="back()"><<</button>
+    <select [(ngModel)]="viewType" (change)="onChangeViewType($event)">
+        <option *ngFor="let val of viewTypeList" [value]="val.id">{{val.name}}</option>
+    </select>
+    <button (click)="forward()">>></button>
+    <div style="display: flex; flex-wrap: wrap">
+        <app-calendar-date [currentDate]="date" *ngFor="let date of calendarDates"></app-calendar-date>
+    </div>
+</div>

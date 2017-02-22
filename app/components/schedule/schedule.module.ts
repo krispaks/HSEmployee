@@ -5,6 +5,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 
 import { ScheduleComponent } from './schedule.component';
+import { CalendarContainerComponent } from './calendar-container/calendar-container.component';
+import { CalendarDateComponent } from './calendar-date/calendar-date.component';
 
 @NgModule({
     imports:[
@@ -13,7 +15,9 @@ import { ScheduleComponent } from './schedule.component';
         ScheduleRoutingModule
     ],
     declarations:[
-        ScheduleComponent
+        ScheduleComponent,
+        CalendarContainerComponent,
+        CalendarDateComponent
     ],
     providers:[]
 })

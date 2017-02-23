@@ -1,0 +1,5 @@
+<div draggable="true" 
+    class="schedule-item-chip"
+    [hidden]="dragging" 
+    (dragend)="onDropEnd($event)" 
+    (drag)="onDrag($event)">{{scheduleEntry.name}}</div>

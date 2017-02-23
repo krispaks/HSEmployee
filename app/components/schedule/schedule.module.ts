@@ -7,6 +7,8 @@ import { ScheduleRoutingModule } from './schedule-routing.module';
 import { ScheduleComponent } from './schedule.component';
 import { CalendarContainerComponent } from './calendar-container/calendar-container.component';
 import { CalendarDateComponent } from './calendar-date/calendar-date.component';
+import { ScheduleItemComponent } from './schedule-item/schedule-item.component';
+
 
 @NgModule({
     imports:[
@@ -17,9 +19,13 @@ import { CalendarDateComponent } from './calendar-date/calendar-date.component';
     declarations:[
         ScheduleComponent,
         CalendarContainerComponent,
-        CalendarDateComponent
+        CalendarDateComponent,
+        ScheduleItemComponent
     ],
     providers:[]
 })
 
-export class ScheduleModule {}
+export class ScheduleModule {
+    constructor(){
+    }
+}

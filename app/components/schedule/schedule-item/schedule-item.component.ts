@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ScheduleEntry } from './scheduleEntry';
 
 @Component({
@@ -10,6 +10,7 @@ import { ScheduleEntry } from './scheduleEntry';
 
 export class ScheduleItemComponent {
     @Input() scheduleEntry: ScheduleEntry; 
+    @Output() onScheduleItemDropEnd = new EventEmitter();
     dragging: boolean = false;
     constructor(){
     }
@@ -20,6 +21,7 @@ export class ScheduleItemComponent {
     }
     onDropEnd($event: any): void {
         this.dragging = false;
+        this.onScheduleItemDropEnd.emit();
         console.log('drag end');
     }
 }

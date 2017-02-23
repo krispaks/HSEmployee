@@ -25,7 +25,12 @@ export class CalendarDateComponent {
         $event.preventDefault();
     }
     onDrop($event: any): void {
+        console.log(this.currentDate + " - end target updating");
         console.log('onDrop');
+    }
+    onScheduleItemDropEndHandler($event: any): void {
+        console.log('start div notified');
+        console.log(this.currentDate + " - start div updating");
     }
 }
 

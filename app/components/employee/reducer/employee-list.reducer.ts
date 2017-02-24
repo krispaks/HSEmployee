@@ -1,8 +1,3 @@
-/*export class Action  {
-    public type: any;
-    public payload: any;
-};*/
-
 import { Action } from '@ngrx/store';
 
 export const ADD_EMPLOYEE = 'ADD_EMPLOYEE';
@@ -10,7 +5,7 @@ export const ADD_EMPLOYEE = 'ADD_EMPLOYEE';
 export const employeeList = (state: any = [], action: Action ) => {
     switch(action.type) {
         case ADD_EMPLOYEE:
-            return action.payload;
+            return action.payload; //add data to the employeelist store
         default:
             return state;
     }

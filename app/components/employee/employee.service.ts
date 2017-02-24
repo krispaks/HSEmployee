@@ -34,8 +34,12 @@ export class EmployeeService {
 
         this.http.get(this.employeeUrl , { headers: this.headers })
             .map((response: Response) => response.json())
-            .map(payload => ({type: ADD_EMPLOYEE, payload}))
-            .subscribe(action => this.store.dispatch(action));
+            .map(payload => {
+                return ({type: ADD_EMPLOYEE, payload: payload})
+            })
+            .subscribe(action => { 
+                this.store.dispatch(action)
+            });
     }
 
     getSearchEmployees(searchCriteria: string){

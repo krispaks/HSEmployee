@@ -1,0 +1,5 @@
+<h1>Notification Registrations</h1>
+
+<div *ngFor="let reg of regs | async">
+    {{reg.RegistrationId}} -- {{reg.Tags}}
+</div>

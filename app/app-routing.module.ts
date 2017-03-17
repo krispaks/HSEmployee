@@ -7,7 +7,8 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'employee', loadChildren: 'app/components/employee/employee.module#EmployeeModule' },
     { path: 'schedule', loadChildren: 'app/components/schedule/schedule.module#ScheduleModule' },
-    { path: 'blog', loadChildren: 'app/components/blog/blog.module#BlogModule' }
+    { path: 'blog', loadChildren: 'app/components/blog/blog.module#BlogModule' },
+    { path: 'tools', loadChildren: 'app/components/tools/tools.module#ToolsModule' }
 ];
 
 @NgModule({

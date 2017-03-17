@@ -45,9 +45,8 @@ describe('BlogListComponent', function () {
 
   it('should create component', () => expect(comp).toBeDefined() );
 
-  it('should cal getBlogs durng ngOninit', () => {
+  it('should call getBlogs during ngOninit', () => {
     fixture.detectChanges();
-
     expect(spy.calls.any()).toBe(true, 'Error with get blogs');
   });
 

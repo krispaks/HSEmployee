@@ -1,5 +1,6 @@
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
+import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, ConnectionBackend} from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
+
 
 export let BLOG_LIST = [
             { id: 1, title: 'Angular is Cool', post: 'The quick brown fox jumps over the lazy dog', author: 'Google', postedDate: new Date('12/20/2013')},
@@ -150,10 +151,8 @@ export let fakeBackendProvider = {
                         ));
                     }
                 }
-
-
             }, 500);
-        })
+        });
 
         return new Http(backend, options);
     },

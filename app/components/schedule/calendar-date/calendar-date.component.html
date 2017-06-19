@@ -2,7 +2,7 @@
     (dragover)="onDragOver($event)" 
     (drop)="onDrop($event)">
     
-    <div style="vertical-align: top; height: 30px">{{currentDate.currentDate | date:'medium'}}</div>
+    <div style="vertical-align: top; height: 30px">{{calDay.currentDate | date:'medium'}}</div>
     <div style="display: flex; flex-wrap: wrap;">
         <app-schedule-item [scheduleEntry]="entry" *ngFor="let entry of scheduleEntry" (onScheduleItemDropEnd)="onScheduleItemDropEndHandler($event)"></app-schedule-item>
     </div>

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ScheduleEntry } from './scheduleEntry';
+import { ScheduleEntry } from '../schedule.types';
 
 @Component({
     moduleId: module.id,

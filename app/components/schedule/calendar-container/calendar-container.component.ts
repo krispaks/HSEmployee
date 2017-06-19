@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
+import { CalendarDay } from '../schedule.types';
 
 @Component({
     moduleId: module.id,
@@ -54,10 +55,3 @@ export class CalendarContainerComponent {
     }
 }
 
-export class CalendarDay {
-    currentDate: Date;
-    constructor(date: Date)
-    {
-        this.currentDate = date;
-    }
-}

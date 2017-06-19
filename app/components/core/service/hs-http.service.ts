@@ -1,5 +1,4 @@
-import { Http, ConnectionBackend, BaseRequestOptions, RequestOptionsArgs, Response, Request, RequestMethod, RequestOptions} from '@angular/http';
-import {} from '@angular/http';
+/*import { Http, ConnectionBackend, BaseRequestOptions, RequestOptionsArgs, Response, Request, RequestMethod, RequestOptions} from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,20 +9,20 @@ function httpRequest(backend: ConnectionBackend, request: Request): Observable<R
 function mergeOptions(
     defaultOpts: BaseRequestOptions, providedOpts: RequestOptionsArgs, method: RequestMethod,
     url: string): RequestOptions {
-  const newOptions = defaultOpts;
-  if (providedOpts) {
-    // Hack so Dart can used named parameters
-    return newOptions.merge(new RequestOptions({
-      method: providedOpts.method || method,
-      url: providedOpts.url || url,
-      search: providedOpts.search,
-      //params: providedOpts.params,
-      headers: providedOpts.headers,
-      body: providedOpts.body,
-      withCredentials: providedOpts.withCredentials,
-      responseType: providedOpts.responseType
-    }));
-  }
+    const newOptions = defaultOpts;
+    if (providedOpts) {
+        // Hack so Dart can used named parameters
+        return newOptions.merge(new RequestOptions({
+        method: providedOpts.method || method,
+        url: providedOpts.url || url,
+        search: providedOpts.search,
+        //params: providedOpts.params,
+        headers: providedOpts.headers,
+        body: providedOpts.body,
+        withCredentials: providedOpts.withCredentials,
+        responseType: providedOpts.responseType
+        }));
+    }
 
   return newOptions.merge(new RequestOptions({method, url}));
 }
@@ -56,4 +55,4 @@ export class HSHttpService extends Http {
         this._defaultOptions.headers.keys()
         return new Observable<Response>();
     }
-}
+}*/

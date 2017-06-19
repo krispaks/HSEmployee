@@ -5,6 +5,6 @@
     </select>
     <button (click)="forward()">>></button>
     <div style="display: flex; flex-wrap: wrap">
-        <app-calendar-date [currentDate]="date" *ngFor="let date of calendarDates"></app-calendar-date>
+        <app-calendar-date [calDay]="date" *ngFor="let date of calendarDates"></app-calendar-date>
     </div>
 </div>

@@ -35,7 +35,7 @@ export class ScheduleService {
         return this.http.post(this.scheduleUrl + '/update/' + entry.id, entry,  { headers: this.headers })
             .toPromise()
             .then((r: Response) => { 
-                //return r.json(); 
+                return r.json(); 
             })
             .catch(this.handleError);
     }

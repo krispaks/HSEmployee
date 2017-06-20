@@ -4,7 +4,11 @@
         <option *ngFor="let val of viewTypeList" [value]="val.id">{{val.name}}</option>
     </select>
     <button (click)="forward()">>></button>
-    <div style="display: flex; flex-wrap: wrap">
-        <app-calendar-date [calDay]="date" *ngFor="let date of calendarDates"></app-calendar-date>
+    <div style="display:flex;">
+        <div (dragover)="onDragOverLeft($event)"  style="width: 3%; height: 100%; background-color:aqua">LEFT</div>
+        <div style="display: flex; flex-wrap: wrap;">
+            <app-calendar-date [calDay]="date" *ngFor="let date of calendarDates"></app-calendar-date>
+        </div>
+        <div (dragover)="onDragOverRight($event)"  style="width: 3%; height: 100%; background-color:aqua">RIGHT</div>
     </div>
 </div>

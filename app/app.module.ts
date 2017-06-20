@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
         AppRoutingModule,
         //InMemoryWebApiModule.forRoot(InMemoryDataService),
         CoreModule,
-        MaterialModule.forRoot()
+        MaterialModule
     ],
     declarations: [ AppComponent ],
     providers: [ fakeBackendProvider

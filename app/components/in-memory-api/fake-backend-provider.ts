@@ -62,21 +62,21 @@ export let fakeBackendProvider = {
 
         let scheduleEntry: ScheduleEntry[] = [
 
-            new ScheduleEntry(1, "Roger Federer", addDate(new Date, 8)),
-            new ScheduleEntry(2, "Rafel Nadal", addDate(new Date, 4)),
-            new ScheduleEntry(3, "Noval Djokovic", addDate(new Date, 2)),
-            new ScheduleEntry(4, "Stan Wawrinka", addDate(new Date, 5)),
-            new ScheduleEntry(5, "Andy Murray", addDate(new Date, 3)),
-            new ScheduleEntry(6, "David Nalbandian", addDate(new Date, 5)),
-            new ScheduleEntry(7, "David Ferrer", addDate(new Date, 2)),
-            new ScheduleEntry(8, "Nikolay Davedenko", addDate(new Date, 4)),
-            new ScheduleEntry(9, "Kei Nishikori", addDate(new Date, 1)),
-            new ScheduleEntry(10, "Mario Ancic", addDate(new Date, 6)),
-            new ScheduleEntry(11, "Pete Sampras", addDate(new Date, 9)),
-            new ScheduleEntry(12, "Andre Agassi", addDate(new Date, 3)),
-            new ScheduleEntry(13, "Jimmy Connors", addDate(new Date, 6)),
-            new ScheduleEntry(14, "John McEnroe", addDate(new Date, 3)),
-            new ScheduleEntry(15, "Ivan Lendl", addDate(new Date, 4)),
+            new ScheduleEntry(1, "Roger Federer", addDate(new Date, -8)),
+            new ScheduleEntry(2, "Rafel Nadal", addDate(new Date, -4)),
+            new ScheduleEntry(3, "Noval Djokovic", addDate(new Date, -2)),
+            new ScheduleEntry(4, "Stan Wawrinka", addDate(new Date, -5)),
+            new ScheduleEntry(5, "Andy Murray", addDate(new Date, -3)),
+            new ScheduleEntry(6, "David Nalbandian", addDate(new Date, -5)),
+            new ScheduleEntry(7, "David Ferrer", addDate(new Date, -2)),
+            new ScheduleEntry(8, "Nikolay Davedenko", addDate(new Date, -4)),
+            new ScheduleEntry(9, "Kei Nishikori", addDate(new Date, -1)),
+            new ScheduleEntry(10, "Mario Ancic", addDate(new Date, -6)),
+            new ScheduleEntry(11, "Pete Sampras", addDate(new Date, -9)),
+            new ScheduleEntry(12, "Andre Agassi", addDate(new Date, -3)),
+            new ScheduleEntry(13, "Jimmy Connors", addDate(new Date, -6)),
+            new ScheduleEntry(14, "John McEnroe", addDate(new Date, -3)),
+            new ScheduleEntry(15, "Ivan Lendl", addDate(new Date, -4)),
         ];
 
         backend.connections.subscribe((connection: MockConnection) => {
@@ -222,6 +222,13 @@ export let fakeBackendProvider = {
                     let body: ScheduleEntry = JSON.parse(connection.request.getBody());
                     newList.push(new ScheduleEntry(body.id, body.name, new Date(body.date)));
                     scheduleEntry = newList;
+
+                    connection.mockRespond(new Response(
+                        new ResponseOptions({
+                            status: 200,
+                            body: true
+                        })
+                    ));
                 }
 
             }, 500);

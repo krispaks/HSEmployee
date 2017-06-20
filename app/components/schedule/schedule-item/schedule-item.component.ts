@@ -17,18 +17,19 @@ export class ScheduleItemComponent {
     }
 
     onDrag($event: any): void {
+        console.log('item - onDrag');
         this.dragging = true;
-        console.log('onDrag');
     }
     
     onDropEnd($event: any): void {
-        console.log('onDropEnd');
+        console.log('item - onDropEnd');
         this.dragging = false;
         this.onScheduleItemDropEnd.emit();
     }
     onDragStart($event: DragEvent): void {
+        console.log('item - onDragStart');
         $event.dataTransfer.setData('scheduleEntry', JSON.stringify(this.scheduleEntry));
-        console.log('onDragStart');
+        $event.dataTransfer.dropEffect = 'move';
     }
 }
 

@@ -21,32 +21,30 @@ export class CalendarDateComponent {
     }
 
     onDragOver($event: any): void {
-        console.log('onDragOver');
+        console.log('*target - onDragOver');
         $event.preventDefault();
     }
     onDrop($event: any): void {
-        console.log(this.calDay.currentDate.toDateString() + " - end target updating");
-        console.log('onDrop');
+        console.log('*target - onDrop ' + this.calDay.currentDate.toDateString() + " - end target updating");
+        $event.preventDefault();
 
         let scheduleToBeUpdated: ScheduleEntry = JSON.parse($event.dataTransfer.getData('scheduleEntry'));
 
         scheduleToBeUpdated.date = this.calDay.currentDate;
 
-        // not sure yet how to update this
         this.scheduleService.updateDaySchedule(scheduleToBeUpdated);
 
         setTimeout(()=> {
             this.scheduleService.getDaySchedule(this.calDay.currentDate)
                 .then((schedules: ScheduleEntry[]) => this.scheduleEntry = schedules);
-        }, 500);
+        }, 100);
     }
     onScheduleItemDropEndHandler($event: any): void {
-        console.log('start div notified');
-        console.log(this.calDay.currentDate.toDateString() + " - start div updating");
+        console.log('*start - onScheduleItemDropEndHandler ' + this.calDay.currentDate.toDateString() + " - start div updating");
 
         //update cell
         this.scheduleService.getDaySchedule(this.calDay.currentDate)
-            .then(schedules => this.scheduleEntry = schedules);
+            .then((schedules: ScheduleEntry[]) => this.scheduleEntry = schedules);
     }
 }
 

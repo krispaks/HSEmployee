@@ -12,8 +12,12 @@ export class CalendarDay {
 }
 
 export class ScheduleEntry {
+    id: number;
+    date: Date;
     name: string;
-    constructor(name: string){
+    constructor(id: number, name: string, date: Date){
+        this.id = id;
         this.name = name;
+        this.date = date;
     }
 }

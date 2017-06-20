@@ -1,5 +1,6 @@
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, ConnectionBackend} from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
+import { ScheduleEntry } from '../schedule/schedule.types';
 
 
 export let BLOG_LIST = [
@@ -49,6 +50,33 @@ export let fakeBackendProvider = {
             { id: 1, userId: 1, canViewEmployee: true, canViewCalendar: true, canViewBlog: true },
             { id: 2, userId: 2, canViewEmployee: true, canViewCalendar: true, canViewBlog: false },
             { id: 3, userId: 3, canViewEmployee: true, canViewCalendar: false, canViewBlog: true }
+        ];
+
+        function addDate(date: Date, numToAdd: number){
+            return new Date(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate() + numToAdd
+            );
+        }
+
+        let scheduleEntry: ScheduleEntry[] = [
+
+            new ScheduleEntry(1, "Roger Federer", addDate(new Date, 8)),
+            new ScheduleEntry(2, "Rafel Nadal", addDate(new Date, 4)),
+            new ScheduleEntry(3, "Noval Djokovic", addDate(new Date, 2)),
+            new ScheduleEntry(4, "Stan Wawrinka", addDate(new Date, 5)),
+            new ScheduleEntry(5, "Andy Murray", addDate(new Date, 3)),
+            new ScheduleEntry(6, "David Nalbandian", addDate(new Date, 5)),
+            new ScheduleEntry(7, "David Ferrer", addDate(new Date, 2)),
+            new ScheduleEntry(8, "Nikolay Davedenko", addDate(new Date, 4)),
+            new ScheduleEntry(9, "Kei Nishikori", addDate(new Date, 1)),
+            new ScheduleEntry(10, "Mario Ancic", addDate(new Date, 6)),
+            new ScheduleEntry(11, "Pete Sampras", addDate(new Date, 9)),
+            new ScheduleEntry(12, "Andre Agassi", addDate(new Date, 3)),
+            new ScheduleEntry(13, "Jimmy Connors", addDate(new Date, 6)),
+            new ScheduleEntry(14, "John McEnroe", addDate(new Date, 3)),
+            new ScheduleEntry(15, "Ivan Lendl", addDate(new Date, 4)),
         ];
 
         backend.connections.subscribe((connection: MockConnection) => {
@@ -137,7 +165,7 @@ export let fakeBackendProvider = {
                 if(connection.request.url.includes('/api/blogs') 
                     && connection.request.method === RequestMethod.Get){
 
-                    if(connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token'){
+                    if(connection.request.headers.get('Authorization') == 'Bearer fake-jwt-token'){
                        
                         connection.mockRespond(new Response(
                             new ResponseOptions({
@@ -151,6 +179,51 @@ export let fakeBackendProvider = {
                         ));
                     }
                 }
+
+                if(connection.request.url.includes('/api/schedule') && connection.request.method === RequestMethod.Get) {
+                    if(connection.request.headers.get('Authorization') !== 'Bearer fake-jwt-token')
+                    {
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({ status: 401 })
+                        ));
+                        return;
+                    }
+
+                    let query = connection.request.url.split('/')[3];
+
+                    let schedules = scheduleEntry.filter((x)=> {
+                        let dateUrl = x.date.getDate() + '' + x.date.getMonth() + '' + x.date.getFullYear();
+                        return dateUrl === query
+                    });
+                    
+                    connection.mockRespond(new Response(
+                        new ResponseOptions({
+                            status: 200,
+                            body: schedules})
+                    ));
+                }
+
+                if(connection.request.url.includes('/api/schedule/update') && connection.request.method === RequestMethod.Post) {
+
+                    if(connection.request.headers.get('Authorization') !== 'Bearer fake-jwt-token')
+                    {
+                        connection.mockRespond(new Response(
+                            new ResponseOptions({ status: 401 })
+                        ));
+                        return;
+                    }
+
+                    let query2 = connection.request.url.split('/')[4];
+                    
+                    // item to find
+                    let newList: ScheduleEntry[] = scheduleEntry.filter((x)=>x.id !== parseInt(query2));
+                    
+                    // item to update
+                    let body: ScheduleEntry = JSON.parse(connection.request.getBody());
+                    newList.push(new ScheduleEntry(body.id, body.name, new Date(body.date)));
+                    scheduleEntry = newList;
+                }
+
             }, 500);
         });
 

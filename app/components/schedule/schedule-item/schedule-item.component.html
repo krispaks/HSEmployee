@@ -2,4 +2,7 @@
     class="schedule-item-chip"
     [hidden]="dragging" 
     (dragend)="onDropEnd($event)" 
-    (drag)="onDrag($event)">{{scheduleEntry.name}}</div>
+    (drag)="onDrag($event)"
+    (dragstart)="onDragStart($event)">
+     {{scheduleEntry.name}} - {{scheduleEntry.date | date:'mediumDate'}}
+</div>

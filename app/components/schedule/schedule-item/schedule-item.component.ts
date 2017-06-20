@@ -11,18 +11,24 @@ import { ScheduleEntry } from '../schedule.types';
 export class ScheduleItemComponent {
     @Input() scheduleEntry: ScheduleEntry; 
     @Output() onScheduleItemDropEnd = new EventEmitter();
+    @Output() onScheduleItemDrop = new EventEmitter();
     dragging: boolean = false;
     constructor(){
     }
 
     onDrag($event: any): void {
         this.dragging = true;
-        console.log('dragging');
+        console.log('onDrag');
     }
+    
     onDropEnd($event: any): void {
+        console.log('onDropEnd');
         this.dragging = false;
         this.onScheduleItemDropEnd.emit();
-        console.log('drag end');
+    }
+    onDragStart($event: DragEvent): void {
+        $event.dataTransfer.setData('scheduleEntry', JSON.stringify(this.scheduleEntry));
+        console.log('onDragStart');
     }
 }
 

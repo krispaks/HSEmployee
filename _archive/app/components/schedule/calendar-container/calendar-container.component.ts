@@ -30,10 +30,6 @@ export class CalendarContainerComponent {
         }, 500);         
 
     constructor(){
-        //get the current year
-        //this.currentDay = new Date();
-        //this.calendarDates = this.renderCalender(this.currentDay);
-        //this.calendarDates = this.renderMonth(moment());
         this.currentMoment = moment();
         this.calendarDates = this.renderMonth(this.currentMoment);
     }
@@ -99,21 +95,13 @@ export class CalendarContainerComponent {
 
     onDragOverLeft($event: any): any {
         console.log('back.....');
-        
 
         this.debouncedLeft();
-        /*setTimeout(() => {
-            this.back();
-        }, 2000);*/
     }
     onDragOverRight($event: any): any {
         console.log('forward.....');
-        
 
         this.debouncedRight();
-        /*setTimeout(() => {
-            this.forward();
-        }, 2000);*/
     }
 }
 

@@ -1,0 +1,36 @@
+{
+  "name": "hyphen",
+  "version": "1.0.0",
+  "description": "Website for Hyphen",
+  "scripts": {
+    "devStart": "webpack-dev-server --content-base ./",
+    "devStart1": "webpack-dev-server --inline --progress",
+    "devStart2": "webpack-dev-server --progress --display-errors-details --inline --hot --content-base ./app",
+    "build": "rimraf dist && webpack --config webpack.prod.js --progress --profile --bail",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "docker-build": "docker build -t ng2-quickstart .",
+    "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
+    "pree2e": "npm run webdriver:update",
+    "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
+    "lint": "tslint ./app/**/*.ts -t verbose",
+    "lite": "lite-server",
+    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
+    "test-once": "tsc && karma start karma.conf.js --single-run",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "webdriver:update": "webdriver-manager update"
+  },
+  "keywords": [],
+  "author": "",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/cli": "^1.4.9"
+  },
+  "repository": {}
+}

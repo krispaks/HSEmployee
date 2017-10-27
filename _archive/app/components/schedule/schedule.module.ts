@@ -11,7 +11,6 @@ import { ScheduleItemComponent } from './schedule-item/schedule-item.component';
 
 import { ScheduleService } from './schedule.service';
 
-
 @NgModule({
     imports:[
         CommonModule,

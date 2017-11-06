@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BlogModule } from './blog/blog.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app.routing.module';
-import { ScheduleModule } from './schedule/schedule.module';
+//import { ScheduleModule } from './schedule/schedule.module';
 
 import { MockBackendService } from './in-memory-api/mock-backend-service';
 //import { MockBackend } from '@angular/http/testing';
@@ -33,7 +33,7 @@ if(environment.useMockBackend){
     BlogModule,
     CoreModule,
     AppRoutingModule,
-    ScheduleModule
+    //ScheduleModule
   ],
   providers: providers,
   bootstrap: [AppComponent]

@@ -16,14 +16,25 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login('', '')
-        .subscribe((isAuthenticated: boolean) => {
-            if(isAuthenticated){
-                this.router.navigate(['/employee']);
-            }
-            else{
-                console.log('login failed');
-            }
-        });
+    /*this.authService.login('', '')
+    .subscribe((isAuthenticated: boolean) => {
+        if(isAuthenticated){
+            this.router.navigate(['/employee']);
+        }
+        else{
+            console.log('login failed');
+        }
+    });*/
+
+    this.authService.login('', '').then((isAuthenticated: boolean) => {
+        if(isAuthenticated){
+            this.router.navigate(['/blog']);
+        }
+        else{
+            console.log('login failed');
+        }
+    }).catch((error: any) => {
+
+    });
   }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 
 import { blogMockBackend } from '../blog/blog-mockBackend';
+import { authMockBackend } from '../core/auth/auth-mockBackend';
 
 @Injectable()
 export class MockBackendService implements HttpInterceptor {
@@ -14,6 +14,8 @@ export class MockBackendService implements HttpInterceptor {
         let url: string = request.url;
         let method: string = request.method;
 
-        return blogMockBackend(url, method, request) || next.handle(request);
+        return blogMockBackend(url, method, request) 
+        || authMockBackend(url, method, request)
+        || next.handle(request);
     }
 }

@@ -14,13 +14,16 @@ import { BlogRootComponent } from './blog-root/blog-root.component';
   imports: [
     CommonModule
   ],
+  exports: [
+      BlogRootComponent
+  ],
   declarations: [
-    BlogRootComponent,
-    BlogCommentListComponent, 
-    BlogCommentComponent, 
-    BlogDetailComponent, 
-    BlogListItemComponent, 
-    BlogListComponent
+        BlogRootComponent,
+        BlogCommentListComponent, 
+        BlogCommentComponent, 
+        BlogDetailComponent, 
+        BlogListItemComponent, 
+        BlogListComponent
     ]
 })
 

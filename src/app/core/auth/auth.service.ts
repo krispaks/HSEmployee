@@ -12,7 +12,7 @@ export class AuthService {
     constructor(private storageService: StorageService,
                 private httpClient: HttpClient){}
 
-    login(username: string, password: string): Observable<Object> {
+    async login(username: string, password: string): Promise<boolean> {
 
         /*return this.http.post('/api/authenticate', JSON.stringify({
             username: username,
@@ -35,12 +35,24 @@ export class AuthService {
             }
         });*/
 
-        return this.httpClient.post('/api/authenticate', JSON.stringify({
+        let isAuthenticated: boolean = false;
+
+        await this.httpClient.post('/api/authenticate', JSON.stringify({
             username: username,
             password: password
-        })).map((response: Object) => {
-            return {};
+        })).subscribe((data: any) => {
+            if(data.isAuthenticated){
+                isAuthenticated = data.isAuthenticated;
+                this.storageService.setItem('user', JSON.stringify({
+                    username: data.username,
+                    token: data.token
+                }));
+            }
+        }, (error: any) => {
+            //logger service here
         });
+
+        return isAuthenticated;
     }
 
     logout(): boolean {

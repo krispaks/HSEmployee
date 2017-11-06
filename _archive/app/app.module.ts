@@ -3,7 +3,7 @@ import { BrowserModule} from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'; 
 import { NoopAnimationPlayer} from '@angular/animations';
 //import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+//import { MaterialModule } from '@angular/material';
 
 import { CoreModule } from './components/core/core.module';
 
@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
         AppRoutingModule,
         //InMemoryWebApiModule.forRoot(InMemoryDataService),
         CoreModule,
-        MaterialModule
+        //MaterialModule
     ],
     declarations: [ AppComponent ],
     providers: [ fakeBackendProvider

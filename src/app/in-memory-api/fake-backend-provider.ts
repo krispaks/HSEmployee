@@ -1,4 +1,4 @@
-/*import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, ConnectionBackend} from '@angular/http';
+import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, ConnectionBackend} from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ScheduleEntry } from '../schedule/schedule.types';
 
@@ -238,4 +238,3 @@ export let fakeBackendProvider = {
     },
     deps: [MockBackend, BaseRequestOptions]
 }
-*/

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BlogModule } from './blog/blog.module';
@@ -8,9 +8,20 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app.routing.module';
 import { ScheduleModule } from './schedule/schedule.module';
 
-//import { fakeBackendProvider } from './in-memory-api/fake-backend-provider';
-import { MockBackend } from '@angular/http/testing';
+import { MockBackendService } from './in-memory-api/mock-backend-service';
+//import { MockBackend } from '@angular/http/testing';
 
+import { environment } from '../environments/environment';
+
+let providers = [];
+
+if(environment.useMockBackend){
+    providers.push({
+        provide: HTTP_INTERCEPTORS,
+        useClass: MockBackendService,
+        multi: true
+    });
+}
 
 @NgModule({
   declarations: [
@@ -24,7 +35,8 @@ import { MockBackend } from '@angular/http/testing';
     AppRoutingModule,
     ScheduleModule
   ],
-  providers: [],
+  providers: providers,
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

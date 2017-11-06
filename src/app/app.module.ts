@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BlogModule } from './blog/blog.module';
+//import { BlogModule } from './blog/blog.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app.routing.module';
 //import { ScheduleModule } from './schedule/schedule.module';
@@ -30,7 +31,7 @@ if(environment.useMockBackend){
   imports: [
     BrowserModule,
     HttpClientModule,
-    BlogModule,
+    //BlogModule,
     CoreModule,
     AppRoutingModule,
     //ScheduleModule
@@ -39,4 +40,8 @@ if(environment.useMockBackend){
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule { 
+    constructor(router: Router){
+        console.log('Routes: ' + JSON.stringify(router.config, undefined, 2));
+    }
+}

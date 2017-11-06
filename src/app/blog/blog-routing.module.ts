@@ -6,7 +6,7 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 const routes: Routes = [{
-    path: '', component: BlogRootComponent 
+    path: '', component: BlogRootComponent
     , children: [
         {
             path: '', redirectTo: 'blogs', pathMatch: 'full'

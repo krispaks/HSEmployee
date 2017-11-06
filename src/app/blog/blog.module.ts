@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-//import { Blo } from './blog-routing.module';
+import { BlogRoutingModule } from './blog-routing.module';
 
 import { BlogCommentListComponent } from './blog-comment-list/blog-comment-list.component';
 import { BlogCommentComponent } from './blog-comment/blog-comment.component';
@@ -12,10 +12,11 @@ import { BlogRootComponent } from './blog-root/blog-root.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    BlogRoutingModule
   ],
   exports: [
-      BlogRootComponent
+      //BlogRootComponent
   ],
   declarations: [
         BlogRootComponent,

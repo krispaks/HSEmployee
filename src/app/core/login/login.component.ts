@@ -9,32 +9,24 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+    
+    username: string = '';
+    password: string = '';
 
-  constructor(private router: Router, private authService: AuthService) { }
+    constructor(private router: Router, private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  login(): void {
-    /*this.authService.login('', '')
-    .subscribe((isAuthenticated: boolean) => {
-        if(isAuthenticated){
-            this.router.navigate(['/employee']);
-        }
-        else{
-            console.log('login failed');
-        }
-    });*/
-
-    this.authService.login('', '').then((isAuthenticated: boolean) => {
-        if(isAuthenticated){
-            this.router.navigate(['/blog']);
-        }
-        else{
-            console.log('login failed');
-        }
-    }).catch((error: any) => {
-
-    });
-  }
+    login(): void {
+        this.authService.login(this.username, this.password)
+        .subscribe((data: any)=>{
+            if(data.isAuthenticated){
+                this.router.navigate(['/blog']);
+            }
+            else{
+                console.log('login failed');
+            }
+        });
+    }
 }

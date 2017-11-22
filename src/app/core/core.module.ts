@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './auth/auth.service';
 import { StorageService } from './storage/storage.service';
+import { LaunchDarklyService } from './ld/ld.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { StorageService } from './storage/storage.service';
   declarations: [LoginComponent],
   providers: [
       AuthService,
-      StorageService
+      StorageService,
+      LaunchDarklyService
   ]
 })
 export class CoreModule { 
